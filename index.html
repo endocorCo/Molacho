@@ -77,9 +77,7 @@ header.nav.scrolled{
 .logo{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-weight:900;font-size:1.28rem;color:var(--chile-deep);letter-spacing:-.5px}
 .logo .mark{
   width:42px;height:42px;border-radius:11px;flex-shrink:0;
-  background:linear-gradient(135deg,var(--maiz),var(--chile));
-  display:grid;place-items:center;color:#fff;font-size:1.3rem;
-  box-shadow:0 6px 16px var(--shadow);transform:rotate(-4deg);
+  object-fit:contain;
 }
 .logo small{display:block;font-family:'Outfit';font-weight:400;font-size:.62rem;letter-spacing:2px;color:var(--tinta-soft);text-transform:uppercase}
 nav.links{display:flex;align-items:center;gap:6px}
@@ -435,7 +433,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
 <!-- NAV -->
 <header class="nav" id="nav">
   <a href="#inicio" class="logo">
-    <span class="mark">HG</span>
+    <img src="images/logo/logo.png" class="mark" alt="El Molacho">
     <span>El Molacho<small data-i18n="logo_sub">Distribución Artesanal</small></span>
   </a>
   <nav class="links" id="navLinks">
@@ -707,7 +705,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <div class="logo"><span class="mark">HG</span><span>El Molacho<small data-i18n="logo_sub">Distribución Artesanal</small></span></div>
+        <div class="logo"><img src="images/logo/logo.png" class="mark" alt="El Molacho"><span>El Molacho<small data-i18n="logo_sub">Distribución Artesanal</small></span></div>
         <p data-i18n="foot_p">Tostadas artesanales El Molacho y salsas La Tatema a base de chiltepín. Más de 850 puntos de venta en México.</p>
       </div>
       <div class="foot-col">
