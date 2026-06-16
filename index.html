@@ -115,7 +115,7 @@ nav.links a:hover{color:var(--chile-deep);background:rgba(247,148,29,.14)}
   font-size:.78rem;font-weight:600;color:var(--chile-deep);letter-spacing:.5px;text-transform:uppercase;
   margin-bottom:24px;animation:rise .8s both;
 }
-.hero-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 4px rgba(139,78,42,.2)}
+.hero-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--maiz);box-shadow:0 0 0 4px rgba(247,148,29,.2)}
 .hero h1{font-size:clamp(3rem,7.5vw,6.5rem);color:var(--tinta);margin-bottom:26px;animation:rise .8s .1s both}
 .hero h1 em{font-style:italic;color:var(--maiz);font-weight:900;position:relative}
 .hero h1 em::after{content:"";position:absolute;left:0;bottom:4px;width:100%;height:9px;background:rgba(247,148,29,.3);z-index:-1;border-radius:4px}
@@ -198,6 +198,12 @@ nav.links a:hover{color:var(--chile-deep);background:rgba(247,148,29,.14)}
 nav.links a{transition:color .22s var(--ease-quint),background .22s var(--ease-quint)}
 header.nav{transition:background .4s var(--ease-quint),box-shadow .4s var(--ease-quint)}
 
+/* Focus visible */
+.btn:focus-visible{outline:3px solid var(--maiz);outline-offset:3px}
+nav.links a:focus-visible{outline:2px solid var(--chile);outline-offset:2px}
+.price-tab:focus-visible,.lang button:focus-visible{outline:2px solid var(--chile);outline-offset:2px}
+.scard-toggle:focus-visible{outline:2px solid var(--maiz);outline-offset:2px}
+
 /* prefers-reduced-motion */
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
@@ -253,7 +259,7 @@ section{position:relative;z-index:2}
   background:linear-gradient(120deg,var(--maiz),var(--maiz-dark));color:#fff;
   box-shadow:0 22px 44px rgba(217,122,16,.32);overflow:hidden;position:relative;
 }
-.highlight-box::after{content:"";position:absolute;right:-10px;bottom:-30px;font-size:9rem;opacity:.14;transform:rotate(-18deg)}
+.highlight-box::after{content:none}
 .highlight-box h3{font-size:1.7rem;margin-bottom:8px}
 .highlight-box p{opacity:.95;max-width:640px;position:relative;z-index:2}
 
@@ -274,7 +280,6 @@ section{position:relative;z-index:2}
 .pmeta span{background:rgba(247,148,29,.16);color:var(--maiz-dark);padding:3px 10px;border-radius:20px;font-weight:600;font-size:.74rem}
 
 /* SALSA CARDS */
-.salsa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:46px}
 .salsa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:46px}
 .salsa-card{
   background:var(--blanco);border-radius:var(--r);overflow:hidden;
@@ -390,7 +395,7 @@ tbody td:first-child{font-weight:600;color:var(--tinta)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .btn-submit{width:100%;justify-content:center;background:var(--chile);color:#fff;box-shadow:0 12px 28px var(--shadow);margin-top:6px}
 .btn-submit:hover{background:var(--chile-deep);transform:translateY(-2px)}
-.form-ok{display:none;margin-top:16px;padding:14px 18px;background:rgba(139,78,42,.12);border-radius:12px;color:var(--verde);font-weight:600;font-size:.9rem;text-align:center}
+.form-ok{display:none;margin-top:16px;padding:14px 18px;background:rgba(247,148,29,.12);border-radius:12px;color:var(--chile-deep);font-weight:600;font-size:.9rem;text-align:center;border:1px solid rgba(247,148,29,.25)}
 .form-ok.show{display:block;animation:rise .4s both}
 
 /* FOOTER */
@@ -707,12 +712,12 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
       <div class="form-card reveal">
         <h3 data-i18n="form_title">Solicita tu cotización</h3>
         <p class="fsub" data-i18n="form_sub">Déjanos tus datos y un asesor te contactará a la brevedad.</p>
-        <div class="field"><label data-i18n="f_name">Nombre / Negocio</label><input id="fName" type="text" placeholder="Tu nombre o restaurante"></div>
+        <div class="field"><label for="fName" data-i18n="f_name">Nombre / Negocio</label><input id="fName" type="text" placeholder="Tu nombre o restaurante" required></div>
         <div class="form-row">
-          <div class="field"><label data-i18n="f_phone">Teléfono</label><input id="fPhone" type="tel" placeholder="55 0000 0000"></div>
-          <div class="field"><label data-i18n="f_email">Correo</label><input id="fEmail" type="email" placeholder="correo@ejemplo.com"></div>
+          <div class="field"><label for="fPhone" data-i18n="f_phone">Teléfono</label><input id="fPhone" type="tel" placeholder="55 0000 0000" required></div>
+          <div class="field"><label for="fEmail" data-i18n="f_email">Correo</label><input id="fEmail" type="email" placeholder="correo@ejemplo.com"></div>
         </div>
-        <div class="field"><label data-i18n="f_int">Me interesa</label>
+        <div class="field"><label for="fInt" data-i18n="f_int">Me interesa</label>
           <select id="fInt">
             <option data-i18n="opt1">Tostadas El Molacho</option>
             <option data-i18n="opt2">Salsas La Tatema</option>
@@ -720,7 +725,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
             <option data-i18n="opt4">Distribución / Mayoreo</option>
           </select>
         </div>
-        <div class="field"><label data-i18n="f_msg">Mensaje</label><textarea id="fMsg" data-i18n-ph="ph_msg" placeholder="Cuéntanos qué necesitas..."></textarea></div>
+        <div class="field"><label for="fMsg" data-i18n="f_msg">Mensaje</label><textarea id="fMsg" data-i18n-ph="ph_msg" placeholder="Cuéntanos qué necesitas..."></textarea></div>
         <button class="btn btn-submit" onclick="sendForm()" data-i18n="f_send">Enviar por WhatsApp</button>
         <div class="form-ok" id="formOk" data-i18n="f_ok">¡Listo! Abriendo WhatsApp para enviar tu mensaje.</div>
       </div>
@@ -831,7 +836,6 @@ function renderClients(){
 /* ===== I18N ===== */
 const T={
   meta_title:{es:"Tostadas El Molacho | Salsas La Tatema a Base de Chiltepín",en:"El Molacho Tostadas | La Tatema Chiltepín Salsas"},
-  logo_sub:{es:"Distribución Artesanal",en:"Artisan Distribution"},
   nav_home:{es:"Inicio",en:"Home"},nav_molacho:{es:"El Molacho",en:"El Molacho"},nav_tatema:{es:"La Tatema",en:"La Tatema"},
   nav_clients:{es:"Clientes",en:"Clients"},nav_contact:{es:"Contacto",en:"Contact"},nav_cta:{es:"Mayoreo",en:"Wholesale"},
   hero_badge:{es:"850+ puntos de venta activos",en:"850+ active points of sale"},
@@ -912,14 +916,17 @@ function switchTab(i,btn){
 
 /* ===== FORM -> WhatsApp ===== */
 function sendForm(){
-  const n=document.getElementById("fName").value||"(sin nombre)";
-  const p=document.getElementById("fPhone").value||"";
-  const e=document.getElementById("fEmail").value||"";
+  const nEl=document.getElementById("fName"),pEl=document.getElementById("fPhone");
+  const n=nEl.value.trim(),p=pEl.value.trim();
+  if(!n){nEl.focus();nEl.style.borderColor="var(--chile)";return;}
+  if(!p){pEl.focus();pEl.style.borderColor="var(--chile)";return;}
+  nEl.style.borderColor="";pEl.style.borderColor="";
+  const e=document.getElementById("fEmail").value.trim();
   const i=document.getElementById("fInt").value;
-  const m=document.getElementById("fMsg").value||"";
-  const txt=`Hola, me interesan sus productos!%0A%0ANombre/Negocio: ${n}%0ATeléfono: ${p}%0ACorreo: ${e}%0AInterés: ${i}%0AMensaje: ${m}`;
+  const m=document.getElementById("fMsg").value.trim();
+  const txt=`Hola, me interesan sus productos!\n\nNombre/Negocio: ${n}\nTeléfono: ${p}${e?"\nCorreo: "+e:""}\nInterés: ${i}${m?"\nMensaje: "+m:""}`;
   document.getElementById("formOk").classList.add("show");
-  setTimeout(()=>window.open(`https://wa.me/525576090266?text=${encodeURIComponent(decodeURIComponent(txt))}`,"_blank"),600);
+  setTimeout(()=>window.open(`https://wa.me/525576090266?text=${encodeURIComponent(txt)}`,"_blank"),600);
 }
 
 /* ===== NAV / SCROLL ===== */
