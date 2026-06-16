@@ -190,11 +190,11 @@ nav.links a:hover{color:var(--chile-deep);background:rgba(247,148,29,.14)}
 .reveal.in .feat-list li:nth-child(8){transition-delay:.46s}
 
 /* Card entrance animation */
-.reveal .prod-card,.reveal .salsa-card,.reveal .client-card{
+.reveal .prod-card,.reveal .salsa-card,.reveal .client-roster li{
   animation:cardReveal .7s var(--ease-expo) both;
   animation-play-state:paused;
 }
-.reveal.in .prod-card,.reveal.in .salsa-card,.reveal.in .client-card{animation-play-state:running}
+.reveal.in .prod-card,.reveal.in .salsa-card,.reveal.in .client-roster li{animation-play-state:running}
 
 /* Nav link easing */
 nav.links a{transition:color .22s var(--ease-quint),background .22s var(--ease-quint)}
@@ -308,7 +308,7 @@ tbody td{padding:15px 18px;border-bottom:1px solid rgba(122,19,24,.07);font-size
 tbody tr:hover{background:rgba(247,148,29,.07)}
 tbody td:first-child{font-weight:600;color:var(--tinta)}
 .price-val{font-family:'Fraunces';font-weight:600;color:var(--chile-deep);font-variant-numeric:tabular-nums}
-.price-note{margin-top:18px;padding:18px 22px;background:rgba(247,148,29,.12);border-radius:14px;font-size:.88rem;color:var(--tinta-soft);border-left:4px solid var(--maiz-dark)}
+.price-note{margin-top:18px;padding:18px 22px;background:rgba(247,148,29,.1);border-radius:14px;font-size:.88rem;color:var(--tinta-soft);border:1px solid rgba(247,148,29,.3)}
 .price-note b{color:var(--chile-deep)}
 .price-tabs{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
 .price-tab{padding:11px 22px;border-radius:30px;border:1.5px solid rgba(122,19,24,.2);background:transparent;cursor:pointer;font-weight:600;font-family:'Outfit';font-size:.9rem;color:var(--tinta-soft);transition:.25s}
@@ -318,18 +318,28 @@ tbody td:first-child{font-weight:600;color:var(--tinta)}
 
 /* CLIENTS */
 .clients{background:var(--crema-2)}
-.client-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;margin-top:46px}
-.client-card{
-  background:var(--blanco);border-radius:16px;padding:30px 20px;text-align:center;
-  box-shadow:0 6px 18px rgba(122,19,24,.06);transition:.35s;border:1px solid rgba(122,19,24,.06);
+.client-roster{
+  list-style:none;columns:3;column-gap:48px;
+  margin-top:52px;
 }
-.client-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(122,19,24,.14)}
-.client-card .clogo{
-  width:64px;height:64px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;
-  font-family:'Fraunces';font-weight:900;font-size:1.5rem;color:#fff;
-  background:linear-gradient(135deg,var(--maiz),var(--chile));
+.client-roster li{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 0;
+  border-bottom:1px solid rgba(122,19,24,.09);
+  break-inside:avoid;
+  font-weight:500;font-size:.96rem;color:var(--tinta);
+  transition:color .2s var(--ease-quint);
 }
-.client-card .cname{font-weight:600;color:var(--tinta);font-size:.98rem}
+.client-roster li:hover{color:var(--chile-deep)}
+.client-roster li .ci{
+  width:32px;height:32px;flex-shrink:0;border-radius:8px;
+  display:grid;place-items:center;
+  background:rgba(247,148,29,.18);
+  font-family:'Fraunces';font-weight:900;font-size:.78rem;color:var(--maiz-dark);
+  letter-spacing:.02em;
+}
+@media(max-width:980px){.client-roster{columns:2}}
+@media(max-width:560px){.client-roster{columns:1}}
 
 /* CONTACT */
 .contact{background:linear-gradient(160deg,var(--crema),var(--crema-2))}
@@ -515,7 +525,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
       </div>
     </div>
 
-    <div class="center reveal" style="margin-top:70px">
+    <div class="reveal" style="margin-top:clamp(60px,8vw,96px);border-top:1px solid rgba(122,19,24,.1);padding-top:clamp(40px,5vw,64px)">
       <h2 class="sec-title" data-i18n="cat_title">Productos El Molacho</h2>
     </div>
     <div class="prod-grid reveal" id="prodGrid"></div>
@@ -578,7 +588,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
       </div>
     </div>
 
-    <div class="center reveal" style="margin-top:70px">
+    <div class="reveal" style="margin-top:clamp(60px,8vw,96px);border-top:1px solid rgba(122,19,24,.1);padding-top:clamp(40px,5vw,64px)">
       <h2 class="sec-title" data-i18n="salsa_title">Nuestras Salsas</h2>
     </div>
     <div class="salsa-grid reveal" id="salsaGrid"></div>
@@ -642,7 +652,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
       <h2 class="sec-title" data-i18n="cli_title">Negocios que ya confían en nosotros</h2>
       <p class="sec-lead" data-i18n="cli_lead">Nuestros productos forman parte de la operación diaria de restaurantes, marisquerías y comercios que buscan calidad, consistencia y sabor.</p>
     </div>
-    <div class="client-grid reveal" id="clientGrid"></div>
+    <ul class="client-roster reveal" id="clientGrid"></ul>
   </div>
 </section>
 
@@ -774,7 +784,7 @@ function renderSalsas(){
   }).join("");
 }
 function renderClients(){
-  document.getElementById("clientGrid").innerHTML=clients.map((c,i)=>`<div class="client-card" style="animation-delay:${i*60}ms"><div class="clogo">${initials(c)}</div><div class="cname">${c}</div></div>`).join("");
+  document.getElementById("clientGrid").innerHTML=clients.map((c,i)=>`<li style="animation-delay:${i*40}ms"><span class="ci">${initials(c)}</span>${c}</li>`).join("");
 }
 
 /* ===== I18N ===== */
