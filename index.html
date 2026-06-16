@@ -275,24 +275,55 @@ section{position:relative;z-index:2}
 
 /* SALSA CARDS */
 .salsa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:46px}
+.salsa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:46px}
 .salsa-card{
   background:var(--blanco);border-radius:var(--r);overflow:hidden;
-  box-shadow:0 8px 24px rgba(122,19,24,.07);transition:.4s;border:1px solid rgba(122,19,24,.07);
+  box-shadow:0 8px 24px rgba(122,19,24,.07);transition:box-shadow .4s,transform .4s;
+  border:1px solid rgba(122,19,24,.07);cursor:pointer;
 }
-.salsa-card:hover{transform:translateY(-8px);box-shadow:0 22px 46px rgba(122,19,24,.18)}
-.salsa-card .simg{height:200px;overflow:hidden}
+.salsa-card:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(122,19,24,.18)}
+.salsa-card.open{box-shadow:0 22px 50px rgba(122,19,24,.2);transform:translateY(-6px)}
+.salsa-card .simg{height:200px;overflow:hidden;transition:height .4s var(--ease-expo)}
+.salsa-card.open .simg{height:240px}
 .salsa-card .simg img{width:100%;height:100%;object-fit:cover;transition:.6s}
-.salsa-card:hover .simg img{transform:scale(1.08)}
-.salsa-card .sbody{padding:20px}
-.salsa-card h4{font-size:1.3rem;color:var(--chile-deep);margin-bottom:4px}
-.salsa-card .ingr{font-size:.85rem;color:var(--tinta-soft);margin-bottom:14px;min-height:54px}
-.heat{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.salsa-card:hover .simg img,.salsa-card.open .simg img{transform:scale(1.06)}
+.salsa-card .sbody{padding:18px 20px}
+.salsa-card h4{font-size:1.3rem;color:var(--chile-deep);margin-bottom:10px;line-height:1.1}
+/* heat row */
+.heat{display:flex;align-items:center;justify-content:space-between;margin-bottom:0}
 .heat .heat-lbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--tinta-soft)}
-.chiles{display:flex;gap:3px}
-.chiles span{font-size:.85rem;color:rgba(122,19,24,.25);line-height:1}
-.chiles span.on{color:var(--chile)}
+.chiles{display:flex;gap:2px}
+.chiles span{font-size:1rem;line-height:1;filter:grayscale(1) opacity(.25)}
+.chiles span.on{filter:none}
+/* expandable details */
+.scard-details{
+  max-height:0;overflow:hidden;
+  transition:max-height .45s var(--ease-expo),padding .45s var(--ease-expo);
+  padding:0 20px;
+}
+.salsa-card.open .scard-details{max-height:180px;padding:14px 20px 0}
+.scard-details .ingr{font-size:.88rem;color:var(--tinta-soft);line-height:1.55;margin-bottom:12px}
 .pres{display:flex;gap:8px}
 .pres span{background:rgba(166,28,34,.1);color:var(--chile);font-size:.74rem;font-weight:600;padding:4px 11px;border-radius:20px}
+/* toggle button */
+.scard-toggle{
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  width:100%;border:0;background:none;cursor:pointer;
+  font-size:.78rem;font-weight:600;color:var(--chile);letter-spacing:.3px;
+  padding:12px 20px 16px;font-family:'Outfit';transition:color .2s;
+}
+.scard-toggle .arr{display:inline-block;transition:transform .35s var(--ease-expo)}
+.salsa-card.open .scard-toggle .arr{transform:rotate(180deg)}
+.scard-toggle:hover{color:var(--chile-deep)}
+/* mobile */
+@media(max-width:600px){
+  .salsa-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .salsa-card .simg{height:150px}
+  .salsa-card.open .simg{height:180px}
+  .salsa-card h4{font-size:1.1rem}
+  .salsa-card .sbody{padding:14px 14px 0}
+  .scard-toggle{padding:10px 14px 14px}
+}
 
 /* PRICING TABLE */
 .price-wrap{margin-top:46px;background:var(--blanco);border-radius:var(--r);overflow:hidden;box-shadow:0 14px 40px rgba(122,19,24,.1);border:1px solid rgba(122,19,24,.08)}
@@ -756,11 +787,11 @@ const products=[
   {n:{es:"Tostada Individual #12",en:"Individual Tostada #12"},img:"images/productos/tostada-individual-12.jpeg",meta:[{es:"Bolsa sellada",en:"Sealed bag"},{es:"3 pzas",en:"3 pcs"}]},
 ];
 const salsas=[
-  {n:"La Makabrona",ing:{es:"Chiltepín silvestre de la Sierra de Sonora · Habanero deshidratado",en:"Wild chiltepín from Sierra de Sonora · Dehydrated habanero"},heat:5,hl:{es:"Extremo",en:"Extreme"},img:"images/productos/la-makabrona.jpeg"},
-  {n:"La Makabra",ing:{es:"Chiltepín silvestre de la Sierra de Sonora",en:"Wild chiltepín from Sierra de Sonora"},heat:4,hl:{es:"Muy Alto",en:"Very High"},img:"images/productos/la-makabra.jpeg"},
-  {n:"La Wantutri",ing:{es:"Pulpa de tamarindo · Chiltepín silvestre · Habanero horneado",en:"Tamarind pulp · Wild chiltepín · Roasted habanero"},heat:3,hl:{es:"Alto",en:"High"},img:"images/productos/la-wantutri.jpeg"},
   {n:"La Tropicalísima",ing:{es:"Salsa de soya · Chiltepín · Pulpa de mango · Habanero",en:"Soy sauce · Chiltepín · Mango pulp · Habanero"},heat:2,hl:{es:"Medio",en:"Medium"},img:"images/productos/la-tropicalisima.jpeg"},
   {n:"La Pelirroja",ing:{es:"Chiltepín · Chile de árbol · Aceite de oliva · Ajo · Condimentos",en:"Chiltepín · Árbol chile · Olive oil · Garlic · Spices"},heat:2,hl:{es:"Medio",en:"Medium"},img:"images/productos/la-pelirroja.jpeg"},
+  {n:"La Wantutri",ing:{es:"Pulpa de tamarindo · Chiltepín silvestre · Habanero horneado",en:"Tamarind pulp · Wild chiltepín · Roasted habanero"},heat:3,hl:{es:"Alto",en:"High"},img:"images/productos/la-wantutri.jpeg"},
+  {n:"La Makabra",ing:{es:"Chiltepín silvestre de la Sierra de Sonora",en:"Wild chiltepín from Sierra de Sonora"},heat:4,hl:{es:"Muy Alto",en:"Very High"},img:"images/productos/la-makabra.jpeg"},
+  {n:"La Makabrona",ing:{es:"Chiltepín silvestre de la Sierra de Sonora · Habanero deshidratado",en:"Wild chiltepín from Sierra de Sonora · Dehydrated habanero"},heat:5,hl:{es:"Extremo",en:"Extreme"},img:"images/productos/la-makabrona.jpeg"},
 ];
 const clients=["Potzollcalli","Las Hijas de la Tostada","La Ostra","El Costeñito","Playas de Sinaloa","Camarón Buchón"];
 
@@ -775,10 +806,25 @@ function renderProducts(){
   }).join("");
 }
 function renderSalsas(){
+  const hLbl=lang==="es"?"Picor":"Heat";
+  const verDet=lang==="es"?"Ver detalles":"Details";
   document.getElementById("salsaGrid").innerHTML=salsas.map((s,i)=>{
-    const ch=[1,2,3,4,5].map(j=>`<span class="${j<=s.heat?'on':''}">●</span>`).join("");
-    const hLbl=lang==="es"?"Picor":"Heat";
-    return `<div class="salsa-card" style="animation-delay:${i*90}ms"><div class="simg"><img src="${s.img}" alt="${s.n}" loading="lazy"></div><div class="sbody"><h4>${s.n}</h4><p class="ingr">${s.ing[lang]}</p><div class="heat"><span class="heat-lbl">${hLbl}: ${s.hl[lang]}</span><div class="chiles">${ch}</div></div><div class="pres"><span>180 ml</span><span>500 ml</span></div></div></div>`;
+    const ch=[1,2,3,4,5].map(j=>`<span class="${j<=s.heat?'on':''}">🌶</span>`).join("");
+    return `<div class="salsa-card" style="animation-delay:${i*90}ms" onclick="this.classList.toggle('open')">
+      <div class="simg"><img src="${s.img}" alt="${s.n}" loading="lazy"></div>
+      <div class="sbody">
+        <h4>${s.n}</h4>
+        <div class="heat">
+          <div class="chiles">${ch}</div>
+          <span class="heat-lbl">${s.hl[lang]}</span>
+        </div>
+      </div>
+      <div class="scard-details">
+        <p class="ingr">${s.ing[lang]}</p>
+        <div class="pres"><span>180 ml</span><span>500 ml</span></div>
+      </div>
+      <button class="scard-toggle" onclick="event.stopPropagation();this.closest('.salsa-card').classList.toggle('open')">${verDet} <span class="arr">▾</span></button>
+    </div>`;
   }).join("");
 }
 function renderClients(){
