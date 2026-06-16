@@ -27,6 +27,8 @@
   --blanco:#FFFEFB;
   --shadow:rgba(166,28,34,.16);
   --r:18px;
+  --ease-expo:cubic-bezier(0.16,1,0.3,1);
+  --ease-quint:cubic-bezier(0.22,1,0.36,1);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
@@ -133,7 +135,7 @@ nav.links a:hover{color:var(--chile-deep);background:rgba(247,148,29,.14)}
 .btn-ghost{background:rgba(255,253,248,.65);color:var(--tinta);border:1.5px solid rgba(122,19,24,.2)}
 .btn-ghost:hover{background:#fff;border-color:var(--chile);transform:translateY(-3px)}
 
-.hero-visual{position:relative;height:460px;animation:rise 1s .3s both}
+.hero-visual{position:relative;height:460px;animation:slideInRight 1s var(--ease-expo) .35s both}
 .hero-visual .main-img{
   width:100%;height:100%;object-fit:cover;border-radius:28px;
   box-shadow:0 30px 60px rgba(122,19,24,.28);
@@ -174,7 +176,57 @@ header.nav:not(.scrolled) .burger span{background:oklch(92% 0.025 72)}
 /* ===== reveal ===== */
 .reveal{opacity:0;transform:translateY(40px);transition:.9s cubic-bezier(.16,1,.3,1)}
 .reveal.in{opacity:1;transform:none}
-@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(30px);animation-timing-function:cubic-bezier(0.16,1,0.3,1)}to{opacity:1;transform:none}}
+@keyframes slideInRight{from{opacity:0;transform:translateX(52px) scale(0.97);animation-timing-function:cubic-bezier(0.16,1,0.3,1)}to{opacity:1;transform:none}}
+@keyframes cardReveal{from{opacity:0;transform:translateY(22px);animation-timing-function:cubic-bezier(0.16,1,0.3,1)}to{opacity:1;transform:none}}
+
+/* ===== ANIMATIONS ===== */
+/* Button active feedback */
+.btn:active{transform:scale(0.96) !important;transition-duration:80ms !important}
+
+/* Stat stagger on scroll reveal */
+.reveal .stat{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease-expo),transform .7s var(--ease-expo)}
+.reveal.in .stat{opacity:1;transform:none}
+.reveal.in .stat:nth-child(1){transition-delay:.06s}
+.reveal.in .stat:nth-child(2){transition-delay:.18s}
+.reveal.in .stat:nth-child(3){transition-delay:.3s}
+
+/* Trust pillars cascade */
+.reveal .trust-pillars li{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease-quint),transform .5s var(--ease-quint)}
+.reveal.in .trust-pillars li{opacity:1;transform:none}
+.reveal.in .trust-pillars li:nth-child(1){transition-delay:.08s}
+.reveal.in .trust-pillars li:nth-child(2){transition-delay:.18s}
+.reveal.in .trust-pillars li:nth-child(3){transition-delay:.28s}
+.reveal.in .trust-pillars li:nth-child(4){transition-delay:.38s}
+
+/* Feature list slide from left */
+.reveal .feat-list li{opacity:0;transform:translateX(-14px);transition:opacity .5s var(--ease-quint),transform .5s var(--ease-quint)}
+.reveal.in .feat-list li{opacity:1;transform:none}
+.reveal.in .feat-list li:nth-child(1){transition-delay:.04s}
+.reveal.in .feat-list li:nth-child(2){transition-delay:.1s}
+.reveal.in .feat-list li:nth-child(3){transition-delay:.16s}
+.reveal.in .feat-list li:nth-child(4){transition-delay:.22s}
+.reveal.in .feat-list li:nth-child(5){transition-delay:.28s}
+.reveal.in .feat-list li:nth-child(6){transition-delay:.34s}
+.reveal.in .feat-list li:nth-child(7){transition-delay:.4s}
+.reveal.in .feat-list li:nth-child(8){transition-delay:.46s}
+
+/* Card entrance animation */
+.reveal .prod-card,.reveal .salsa-card,.reveal .client-card{
+  animation:cardReveal .7s var(--ease-expo) both;
+  animation-play-state:paused;
+}
+.reveal.in .prod-card,.reveal.in .salsa-card,.reveal.in .client-card{animation-play-state:running}
+
+/* Nav link easing */
+nav.links a{transition:color .22s var(--ease-quint),background .22s var(--ease-quint)}
+header.nav{transition:background .4s var(--ease-quint),box-shadow .4s var(--ease-quint)}
+
+/* prefers-reduced-motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
 
 /* ===== SECTIONS ===== */
 section{position:relative;z-index:2}
@@ -731,20 +783,20 @@ let lang="es";
 function initials(name){return name.split(" ").filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join("").toUpperCase()||name[0]}
 
 function renderProducts(){
-  document.getElementById("prodGrid").innerHTML=products.map(p=>{
+  document.getElementById("prodGrid").innerHTML=products.map((p,i)=>{
     const meta=p.meta.map(m=>`<span>${typeof m==="object"?m[lang]:m}</span>`).join("");
-    return `<div class="prod-card"><div class="pimg"><img src="${p.img}" alt="${p.n[lang]}" loading="lazy"></div><div class="pbody"><h4>${p.n[lang]}</h4><div class="pmeta">${meta}</div></div></div>`;
+    return `<div class="prod-card" style="animation-delay:${i*80}ms"><div class="pimg"><img src="${p.img}" alt="${p.n[lang]}" loading="lazy"></div><div class="pbody"><h4>${p.n[lang]}</h4><div class="pmeta">${meta}</div></div></div>`;
   }).join("");
 }
 function renderSalsas(){
-  document.getElementById("salsaGrid").innerHTML=salsas.map(s=>{
-    const ch=[1,2,3,4,5].map(i=>`<span class="${i<=s.heat?'on':''}">●</span>`).join("");
+  document.getElementById("salsaGrid").innerHTML=salsas.map((s,i)=>{
+    const ch=[1,2,3,4,5].map(j=>`<span class="${j<=s.heat?'on':''}">●</span>`).join("");
     const hLbl=lang==="es"?"Picor":"Heat";
-    return `<div class="salsa-card"><div class="simg"><img src="${s.img}" alt="${s.n}" loading="lazy"></div><div class="sbody"><h4>${s.n}</h4><p class="ingr">${s.ing[lang]}</p><div class="heat"><span class="heat-lbl">${hLbl}: ${s.hl[lang]}</span><div class="chiles">${ch}</div></div><div class="pres"><span>180 ml</span><span>500 ml</span></div></div></div>`;
+    return `<div class="salsa-card" style="animation-delay:${i*90}ms"><div class="simg"><img src="${s.img}" alt="${s.n}" loading="lazy"></div><div class="sbody"><h4>${s.n}</h4><p class="ingr">${s.ing[lang]}</p><div class="heat"><span class="heat-lbl">${hLbl}: ${s.hl[lang]}</span><div class="chiles">${ch}</div></div><div class="pres"><span>180 ml</span><span>500 ml</span></div></div></div>`;
   }).join("");
 }
 function renderClients(){
-  document.getElementById("clientGrid").innerHTML=clients.map(c=>`<div class="client-card"><div class="clogo">${initials(c)}</div><div class="cname">${c}</div></div>`).join("");
+  document.getElementById("clientGrid").innerHTML=clients.map((c,i)=>`<div class="client-card" style="animation-delay:${i*60}ms"><div class="clogo">${initials(c)}</div><div class="cname">${c}</div></div>`).join("");
 }
 
 /* ===== I18N ===== */
