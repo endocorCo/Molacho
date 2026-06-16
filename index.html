@@ -108,10 +108,7 @@ nav.links a:hover{color:var(--chile-deep);background:rgba(247,148,29,.14)}
 .hero{
   position:relative;min-height:100vh;display:flex;align-items:center;
   padding:140px 0 100px;overflow:hidden;
-  background:
-    radial-gradient(ellipse at 72% 6%, oklch(50% 0.15 42), transparent 40%),
-    radial-gradient(ellipse at 6% 90%, oklch(26% 0.09 22), transparent 46%),
-    oklch(34% 0.12 22);
+  background:var(--crema);
 }
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative;z-index:2}
 .hero-badge{
@@ -121,10 +118,10 @@ nav.links a:hover{color:var(--chile-deep);background:rgba(247,148,29,.14)}
   margin-bottom:24px;animation:rise .8s both;
 }
 .hero-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 4px rgba(139,78,42,.2)}
-.hero h1{font-size:clamp(3rem,7.5vw,6.5rem);color:oklch(95% 0.025 72);margin-bottom:26px;animation:rise .8s .1s both}
+.hero h1{font-size:clamp(3rem,7.5vw,6.5rem);color:var(--tinta);margin-bottom:26px;animation:rise .8s .1s both}
 .hero h1 em{font-style:italic;color:var(--maiz);font-weight:900;position:relative}
 .hero h1 em::after{content:"";position:absolute;left:0;bottom:4px;width:100%;height:9px;background:rgba(247,148,29,.3);z-index:-1;border-radius:4px}
-.hero p.sub{font-size:clamp(1.05rem,1.5vw,1.22rem);color:oklch(80% 0.025 72);max-width:58ch;margin-bottom:38px;animation:rise .8s .2s both;line-height:1.7}
+.hero p.sub{font-size:clamp(1.05rem,1.5vw,1.22rem);color:var(--tinta-soft);max-width:58ch;margin-bottom:38px;animation:rise .8s .2s both;line-height:1.7}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:rise .8s .3s both}
 .btn{
   display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:34px;
@@ -153,25 +150,6 @@ nav.links a:hover{color:var(--chile-deep);background:rgba(247,148,29,.14)}
 @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .hero-blob{position:absolute;border-radius:50%;filter:blur(60px);z-index:0}
 
-/* ===== DARK HERO OVERRIDES ===== */
-header.nav:not(.scrolled) .logo{color:oklch(93% 0.025 72)}
-header.nav:not(.scrolled) .logo small{color:oklch(72% 0.02 72)}
-header.nav:not(.scrolled) nav.links a{color:oklch(82% 0.02 72)}
-header.nav:not(.scrolled) nav.links a:hover{color:#fff;background:rgba(255,255,255,.1)}
-header.nav:not(.scrolled) .lang{border-color:rgba(255,255,255,.22)}
-header.nav:not(.scrolled) .lang button{color:oklch(82% 0.02 72)}
-header.nav:not(.scrolled) .lang button.active{background:rgba(255,255,255,.16);color:#fff}
-header.nav:not(.scrolled) .nav-cta{background:var(--maiz);color:var(--tinta)!important;box-shadow:0 6px 20px rgba(247,148,29,.35)}
-header.nav:not(.scrolled) .nav-cta:hover{background:oklch(78% 0.17 50)!important;color:var(--tinta)!important}
-header.nav:not(.scrolled) .burger span{background:oklch(92% 0.025 72)}
-.hero .hero-badge{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:oklch(88% 0.03 72)}
-.hero .hero-badge::before{background:var(--maiz);box-shadow:0 0 0 4px rgba(247,148,29,.22)}
-.hero-btns .btn-primary{background:var(--maiz);color:var(--tinta);box-shadow:0 12px 30px rgba(247,148,29,.32)}
-.hero-btns .btn-primary:hover{background:oklch(76% 0.17 50);transform:translateY(-3px);box-shadow:0 18px 36px rgba(247,148,29,.35)}
-.hero-btns .btn-ghost{background:rgba(255,255,255,.06);color:oklch(90% 0.025 72);border-color:rgba(255,255,255,.28)}
-.hero-btns .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.5);color:#fff;transform:translateY(-3px)}
-.hero .float-card{background:rgba(255,251,244,.96)}
-.hero-visual .main-img{filter:saturate(.88) contrast(1.06)}
 
 /* ===== reveal ===== */
 .reveal{opacity:0;transform:translateY(40px);transition:.9s cubic-bezier(.16,1,.3,1)}
