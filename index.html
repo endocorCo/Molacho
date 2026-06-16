@@ -809,7 +809,7 @@ function renderSalsas(){
   const hLbl=lang==="es"?"Picor":"Heat";
   const verDet=lang==="es"?"Ver detalles":"Details";
   document.getElementById("salsaGrid").innerHTML=salsas.map((s,i)=>{
-    const ch=[1,2,3,4,5].map(j=>`<span class="${j<=s.heat?'on':''}">🌶</span>`).join("");
+    const ch=[1,2,3,4,5].map(j=>`<span class="${j<=s.heat?'on':''}">🔥</span>`).join("");
     return `<div class="salsa-card" style="animation-delay:${i*90}ms" onclick="this.classList.toggle('open')">
       <div class="simg"><img src="${s.img}" alt="${s.n}" loading="lazy"></div>
       <div class="sbody">
