@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="meta_title">Grupo Hergui-Gam | Tostadas El Molacho y Salsas La Tatema</title>
+<meta name="description" data-i18n="meta_desc" content="Distribución de tostadas artesanales El Molacho y salsas La Tatema. Más de 850 puntos de venta en CDMX, Estado de México y Morelos. Precios de mayoreo para negocios.">
+<meta name="keywords" content="tostadas artesanales, salsas mexicanas, mayoreo tostadas, El Molacho, La Tatema, distribución CDMX, Morelos, totopos, nachos, chiltepín">
+<meta property="og:title" content="Grupo Hergui-Gam | Tostadas El Molacho y Salsas La Tatema">
+<meta property="og:description" content="Tostadas artesanales y salsas mexicanas para hogares, restaurantes y negocios.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --maiz:#E8A33D;
+  --maiz-dark:#C97B1E;
+  --chile:#B5231C;
+  --chile-deep:#7C1410;
+  --tatema:#6B1A14;
+  --verde:#3C5233;
+  --crema:#FBF4E6;
+  --crema-2:#F4E7CE;
+  --tinta:#231712;
+  --tinta-soft:#4A352B;
+  --blanco:#FFFDF8;
+  --shadow:rgba(124,20,16,.16);
+  --r:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--crema);
+  color:var(--tinta);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.05;font-weight:700}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+.wrap{width:min(1200px,92%);margin-inline:auto}
+.serif-it{font-family:'Fraunces',serif;font-style:italic;font-weight:500}
+
+/* texture overlay */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.04;
+  background-image:radial-gradient(var(--tinta) .5px,transparent .5px);
+  background-size:14px 14px;mix-blend-mode:multiply;
+}
+
+/* ===== NAV ===== */
+header.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px clamp(16px,4vw,48px);
+  transition:.4s;background:transparent;
+}
+header.nav.scrolled{
+  background:rgba(251,244,230,.92);
+  backdrop-filter:blur(14px);
+  box-shadow:0 8px 30px rgba(124,20,16,.08);
+}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Fraunces',serif;font-weight:900;font-size:1.28rem;color:var(--chile-deep);letter-spacing:-.5px}
+.logo .mark{
+  width:42px;height:42px;border-radius:11px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--maiz),var(--chile));
+  display:grid;place-items:center;color:#fff;font-size:1.3rem;
+  box-shadow:0 6px 16px var(--shadow);transform:rotate(-4deg);
+}
+.logo small{display:block;font-family:'Outfit';font-weight:400;font-size:.62rem;letter-spacing:2px;color:var(--tinta-soft);text-transform:uppercase}
+nav.links{display:flex;align-items:center;gap:6px}
+nav.links a{
+  font-size:.92rem;font-weight:500;padding:9px 15px;border-radius:30px;
+  color:var(--tinta-soft);transition:.25s;position:relative;
+}
+nav.links a:hover{color:var(--chile-deep);background:rgba(229,163,61,.14)}
+.lang{
+  display:flex;border:1.5px solid var(--maiz-dark);border-radius:30px;overflow:hidden;margin-left:8px;
+}
+.lang button{
+  border:0;background:transparent;cursor:pointer;font-family:'Outfit';
+  font-weight:600;font-size:.78rem;padding:7px 13px;color:var(--maiz-dark);transition:.25s;
+}
+.lang button.active{background:var(--maiz-dark);color:#fff}
+.nav-cta{
+  background:var(--chile);color:#fff!important;padding:10px 20px!important;
+  font-weight:600;box-shadow:0 6px 18px var(--shadow);
+}
+.nav-cta:hover{background:var(--chile-deep)!important;transform:translateY(-1px)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{width:26px;height:2.5px;background:var(--chile-deep);border-radius:2px;transition:.3s}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:130px 0 70px;overflow:hidden;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(232,163,61,.35),transparent 45%),
+    radial-gradient(circle at 10% 90%,rgba(181,35,28,.18),transparent 50%),
+    linear-gradient(160deg,var(--crema) 0%,var(--crema-2) 100%);
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;position:relative;z-index:2}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;background:rgba(255,253,248,.7);
+  border:1px solid rgba(124,20,16,.15);padding:7px 16px;border-radius:30px;
+  font-size:.78rem;font-weight:600;color:var(--chile-deep);letter-spacing:.5px;text-transform:uppercase;
+  margin-bottom:24px;animation:rise .8s both;
+}
+.hero-badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 4px rgba(60,82,51,.2)}
+.hero h1{font-size:clamp(2.4rem,5.2vw,4.3rem);color:var(--tinta);margin-bottom:22px;animation:rise .8s .1s both}
+.hero h1 em{font-style:italic;color:var(--chile);font-weight:600;position:relative}
+.hero h1 em::after{content:"";position:absolute;left:0;bottom:4px;width:100%;height:9px;background:rgba(232,163,61,.45);z-index:-1;border-radius:4px}
+.hero p.sub{font-size:clamp(1rem,1.4vw,1.18rem);color:var(--tinta-soft);max-width:540px;margin-bottom:34px;animation:rise .8s .2s both}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:rise .8s .3s both}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;padding:15px 28px;border-radius:34px;
+  font-weight:600;font-size:.98rem;cursor:pointer;border:0;transition:.3s;font-family:'Outfit';
+}
+.btn-primary{background:var(--chile);color:#fff;box-shadow:0 12px 28px var(--shadow)}
+.btn-primary:hover{background:var(--chile-deep);transform:translateY(-3px);box-shadow:0 18px 34px var(--shadow)}
+.btn-ghost{background:rgba(255,253,248,.65);color:var(--tinta);border:1.5px solid rgba(124,20,16,.2)}
+.btn-ghost:hover{background:#fff;border-color:var(--chile);transform:translateY(-3px)}
+
+.hero-visual{position:relative;height:460px;animation:rise 1s .3s both}
+.hero-visual .main-img{
+  width:100%;height:100%;object-fit:cover;border-radius:28px;
+  box-shadow:0 30px 60px rgba(124,20,16,.28);
+}
+.float-card{
+  position:absolute;background:rgba(255,253,248,.93);backdrop-filter:blur(8px);
+  padding:14px 18px;border-radius:16px;box-shadow:0 14px 34px rgba(124,20,16,.18);
+  display:flex;align-items:center;gap:12px;
+}
+.float-card .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:1.2rem;background:linear-gradient(135deg,var(--maiz),var(--chile));color:#fff}
+.float-card b{display:block;font-family:'Fraunces';font-size:1.1rem;color:var(--chile-deep);line-height:1}
+.float-card small{font-size:.72rem;color:var(--tinta-soft)}
+.fc1{top:24px;left:-26px;animation:floaty 4s ease-in-out infinite}
+.fc2{bottom:30px;right:-22px;animation:floaty 4s ease-in-out infinite 1.5s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(60px);z-index:0}
+
+/* ===== reveal ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:.9s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+
+/* ===== SECTIONS ===== */
+section{position:relative;z-index:2}
+.sec-pad{padding:clamp(70px,9vw,120px) 0}
+.eyebrow{
+  display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--chile);margin-bottom:14px;
+}
+.sec-title{font-size:clamp(1.9rem,3.8vw,3rem);margin-bottom:18px;color:var(--tinta)}
+.sec-lead{font-size:1.08rem;color:var(--tinta-soft);max-width:600px}
+.center{text-align:center}
+.center .sec-lead{margin-inline:auto}
+
+/* TRUST */
+.trust{background:linear-gradient(135deg,var(--tatema),var(--chile-deep));color:var(--crema);overflow:hidden}
+.trust::after{content:"";position:absolute;inset:0;opacity:.07;background-image:radial-gradient(#fff 1px,transparent 1px);background-size:22px 22px}
+.trust .eyebrow{color:var(--maiz)}
+.trust .sec-title{color:#fff}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:48px 0}
+.stat{text-align:center;padding:34px 18px;border-radius:var(--r);background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);transition:.4s}
+.stat:hover{background:rgba(255,255,255,.13);transform:translateY(-6px)}
+.stat .num{font-family:'Fraunces';font-size:clamp(2.6rem,5vw,3.8rem);font-weight:900;color:var(--maiz);line-height:1}
+.stat .lbl{margin-top:10px;font-size:.95rem;opacity:.9}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.benefit{display:flex;align-items:center;gap:13px;padding:18px 20px;background:rgba(255,255,255,.06);border-radius:14px;border:1px solid rgba(255,255,255,.1)}
+.benefit .ic{font-size:1.5rem}
+.benefit span{font-weight:500;font-size:.94rem}
+
+/* BRAND BLOCK */
+.brand{position:relative}
+.brand-head{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.brand-tag{
+  display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:30px;
+  font-weight:700;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px;
+}
+.tag-molacho{background:rgba(232,163,61,.18);color:var(--maiz-dark)}
+.tag-tatema{background:rgba(181,35,28,.14);color:var(--chile)}
+.brand h2{font-size:clamp(2.1rem,4vw,3.2rem);margin-bottom:18px}
+.feat-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 22px;margin-top:24px}
+.feat-list li{list-style:none;display:flex;align-items:flex-start;gap:9px;font-size:.95rem;color:var(--tinta-soft)}
+.feat-list li::before{content:"✦";color:var(--maiz-dark);font-size:.85rem;margin-top:3px}
+.brand-img-wrap{position:relative}
+.brand-img-wrap img{border-radius:24px;height:440px;width:100%;object-fit:cover;box-shadow:0 26px 50px rgba(124,20,16,.22)}
+.brand-img-wrap .ring{position:absolute;inset:-14px;border:2px dashed rgba(232,163,61,.5);border-radius:32px;z-index:-1}
+
+.highlight-box{
+  margin-top:54px;display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;
+  padding:36px clamp(24px,4vw,46px);border-radius:var(--r);
+  background:linear-gradient(120deg,var(--maiz),var(--maiz-dark));color:#fff;
+  box-shadow:0 22px 44px rgba(201,123,30,.32);overflow:hidden;position:relative;
+}
+.highlight-box::after{content:"🌽";position:absolute;right:-10px;bottom:-30px;font-size:9rem;opacity:.14;transform:rotate(-18deg)}
+.highlight-box .hb-ic{font-size:3rem}
+.highlight-box h3{font-size:1.7rem;margin-bottom:8px}
+.highlight-box p{opacity:.95;max-width:640px;position:relative;z-index:2}
+
+/* PRODUCT CARDS */
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(225px,1fr));gap:22px;margin-top:46px}
+.prod-card{
+  background:var(--blanco);border-radius:var(--r);overflow:hidden;
+  border:1px solid rgba(124,20,16,.08);box-shadow:0 8px 24px rgba(124,20,16,.06);
+  transition:.4s;position:relative;
+}
+.prod-card:hover{transform:translateY(-8px);box-shadow:0 22px 44px rgba(124,20,16,.16)}
+.prod-card .pimg{height:175px;overflow:hidden;position:relative}
+.prod-card .pimg img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.prod-card:hover .pimg img{transform:scale(1.09)}
+.prod-card .pbody{padding:18px 20px}
+.prod-card h4{font-size:1.16rem;margin-bottom:6px;color:var(--tinta)}
+.prod-card .pmeta{font-size:.85rem;color:var(--tinta-soft);display:flex;flex-wrap:wrap;gap:6px}
+.pmeta span{background:rgba(232,163,61,.16);color:var(--maiz-dark);padding:3px 10px;border-radius:20px;font-weight:600;font-size:.74rem}
+
+/* SALSA CARDS */
+.salsa-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px;margin-top:46px}
+.salsa-card{
+  background:var(--blanco);border-radius:var(--r);overflow:hidden;
+  box-shadow:0 8px 24px rgba(124,20,16,.07);transition:.4s;border:1px solid rgba(124,20,16,.07);
+}
+.salsa-card:hover{transform:translateY(-8px);box-shadow:0 22px 46px rgba(124,20,16,.18)}
+.salsa-card .simg{height:200px;overflow:hidden}
+.salsa-card .simg img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.salsa-card:hover .simg img{transform:scale(1.08)}
+.salsa-card .sbody{padding:20px}
+.salsa-card h4{font-size:1.3rem;color:var(--chile-deep);margin-bottom:4px}
+.salsa-card .ingr{font-size:.85rem;color:var(--tinta-soft);margin-bottom:14px;min-height:54px}
+.heat{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.heat .heat-lbl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--tinta-soft)}
+.chiles{display:flex;gap:3px}
+.chiles span{font-size:1rem;filter:grayscale(1);opacity:.3}
+.chiles span.on{filter:none;opacity:1}
+.pres{display:flex;gap:8px}
+.pres span{background:rgba(181,35,28,.1);color:var(--chile);font-size:.74rem;font-weight:600;padding:4px 11px;border-radius:20px}
+
+/* PRICING TABLE */
+.price-wrap{margin-top:46px;background:var(--blanco);border-radius:var(--r);overflow:hidden;box-shadow:0 14px 40px rgba(124,20,16,.1);border:1px solid rgba(124,20,16,.08)}
+table{width:100%;border-collapse:collapse}
+thead th{
+  background:linear-gradient(135deg,var(--tatema),var(--chile-deep));color:#fff;
+  font-family:'Outfit';font-weight:600;font-size:.82rem;letter-spacing:.5px;
+  padding:16px 18px;text-align:left;text-transform:uppercase;
+}
+tbody td{padding:15px 18px;border-bottom:1px solid rgba(124,20,16,.07);font-size:.94rem}
+tbody tr:hover{background:rgba(232,163,61,.07)}
+tbody td:first-child{font-weight:600;color:var(--tinta)}
+.price-val{font-family:'Fraunces';font-weight:600;color:var(--chile-deep)}
+.price-note{margin-top:18px;padding:18px 22px;background:rgba(232,163,61,.12);border-radius:14px;font-size:.88rem;color:var(--tinta-soft);border-left:4px solid var(--maiz-dark)}
+.price-note b{color:var(--chile-deep)}
+.price-tabs{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
+.price-tab{padding:11px 22px;border-radius:30px;border:1.5px solid rgba(124,20,16,.2);background:transparent;cursor:pointer;font-weight:600;font-family:'Outfit';font-size:.9rem;color:var(--tinta-soft);transition:.25s}
+.price-tab.active{background:var(--chile);color:#fff;border-color:var(--chile)}
+.tabpane{display:none}
+.tabpane.active{display:block;animation:rise .5s both}
+
+/* CLIENTS */
+.clients{background:var(--crema-2)}
+.client-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px;margin-top:46px}
+.client-card{
+  background:var(--blanco);border-radius:16px;padding:30px 20px;text-align:center;
+  box-shadow:0 6px 18px rgba(124,20,16,.06);transition:.35s;border:1px solid rgba(124,20,16,.06);
+}
+.client-card:hover{transform:translateY(-6px);box-shadow:0 16px 34px rgba(124,20,16,.14)}
+.client-card .clogo{
+  width:64px;height:64px;border-radius:50%;margin:0 auto 14px;display:grid;place-items:center;
+  font-family:'Fraunces';font-weight:900;font-size:1.5rem;color:#fff;
+  background:linear-gradient(135deg,var(--maiz),var(--chile));
+}
+.client-card .cname{font-weight:600;color:var(--tinta);font-size:.98rem}
+
+/* CONTACT */
+.contact{background:linear-gradient(160deg,var(--crema),var(--crema-2))}
+.contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;margin-top:46px}
+.contact-info{display:flex;flex-direction:column;gap:22px}
+.office{background:var(--blanco);border-radius:var(--r);padding:26px 28px;box-shadow:0 8px 24px rgba(124,20,16,.07);border:1px solid rgba(124,20,16,.06)}
+.office h4{font-size:1.25rem;color:var(--chile-deep);margin-bottom:12px;display:flex;align-items:center;gap:9px}
+.office p{font-size:.92rem;color:var(--tinta-soft);margin-bottom:7px;display:flex;align-items:flex-start;gap:9px}
+.office a{color:var(--chile);font-weight:500}
+.office a:hover{text-decoration:underline}
+.form-card{background:var(--blanco);border-radius:var(--r);padding:34px clamp(22px,3vw,38px);box-shadow:0 14px 40px rgba(124,20,16,.1);border:1px solid rgba(124,20,16,.06)}
+.form-card h3{font-size:1.6rem;margin-bottom:6px;color:var(--tinta)}
+.form-card p.fsub{color:var(--tinta-soft);font-size:.92rem;margin-bottom:24px}
+.field{margin-bottom:18px}
+.field label{display:block;font-size:.82rem;font-weight:600;color:var(--tinta-soft);margin-bottom:7px}
+.field input,.field textarea,.field select{
+  width:100%;padding:13px 16px;border:1.5px solid rgba(124,20,16,.16);border-radius:12px;
+  font-family:'Outfit';font-size:.95rem;color:var(--tinta);background:var(--crema);transition:.25s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--chile);background:#fff;box-shadow:0 0 0 4px rgba(181,35,28,.08)}
+.field textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.btn-submit{width:100%;justify-content:center;background:var(--chile);color:#fff;box-shadow:0 12px 28px var(--shadow);margin-top:6px}
+.btn-submit:hover{background:var(--chile-deep);transform:translateY(-2px)}
+.form-ok{display:none;margin-top:16px;padding:14px 18px;background:rgba(60,82,51,.12);border-radius:12px;color:var(--verde);font-weight:600;font-size:.9rem;text-align:center}
+.form-ok.show{display:block;animation:rise .4s both}
+
+/* FOOTER */
+footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:relative;z-index:2}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;margin-bottom:44px}
+.foot-brand .logo{color:#fff;margin-bottom:16px}
+.foot-brand .logo small{color:rgba(251,244,230,.6)}
+.foot-brand p{font-size:.9rem;color:rgba(251,244,230,.65);max-width:300px}
+.foot-col h5{font-family:'Fraunces';font-size:1.05rem;margin-bottom:16px;color:var(--maiz)}
+.foot-col a{display:block;font-size:.9rem;color:rgba(251,244,230,.7);margin-bottom:10px;transition:.2s}
+.foot-col a:hover{color:#fff;padding-left:4px}
+.socials{display:flex;gap:11px;margin-top:6px}
+.socials a{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.08);font-size:1.1rem;transition:.3s}
+.socials a:hover{background:var(--chile);transform:translateY(-3px)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:.82rem;color:rgba(251,244,230,.55)}
+.foot-bottom a{color:rgba(251,244,230,.7)}
+.foot-bottom a:hover{color:#fff}
+
+/* WHATSAPP FLOAT */
+.wa-float{
+  position:fixed;bottom:26px;right:26px;z-index:200;width:62px;height:62px;border-radius:50%;
+  background:#25D366;display:grid;place-items:center;color:#fff;font-size:1.9rem;
+  box-shadow:0 10px 30px rgba(37,211,102,.5);transition:.3s;animation:waPulse 2.4s infinite;
+}
+.wa-float:hover{transform:scale(1.1)}
+@keyframes waPulse{0%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 0 rgba(37,211,102,0)}}
+.wa-tip{position:fixed;bottom:40px;right:100px;z-index:199;background:var(--blanco);padding:9px 16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.14);font-size:.85rem;font-weight:600;color:var(--tinta);opacity:0;transform:translateX(10px);transition:.3s;pointer-events:none;white-space:nowrap}
+.wa-float:hover + .wa-tip{opacity:1;transform:translateX(0)}
+
+/* RESPONSIVE */
+@media(max-width:980px){
+  nav.links{
+    position:fixed;top:0;right:-100%;height:100vh;width:min(320px,82%);
+    flex-direction:column;justify-content:center;gap:18px;
+    background:var(--crema);box-shadow:-10px 0 40px rgba(0,0,0,.12);transition:.4s;padding:40px;align-items:stretch;
+  }
+  nav.links.open{right:0}
+  nav.links a{font-size:1.05rem;padding:12px 18px}
+  .burger{display:flex;z-index:101}
+  .burger.x span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .burger.x span:nth-child(2){opacity:0}
+  .burger.x span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  .lang{margin:14px 0 0}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{height:360px;order:-1}
+  .fc1{left:0}.fc2{right:0}
+  .brand-head{grid-template-columns:1fr;gap:34px}
+  .brand-img-wrap img{height:340px}
+  .stats{grid-template-columns:1fr;gap:16px}
+  .benefits{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+}
+@media(max-width:560px){
+  .feat-list{grid-template-columns:1fr}
+  .benefits{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .highlight-box{grid-template-columns:1fr;text-align:center}
+  .price-wrap{overflow-x:auto}
+  table{min-width:560px}
+  .wa-tip{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="logo">
+    <span class="mark">🌽</span>
+    <span>Hergui-Gam<small data-i18n="logo_sub">Distribución Artesanal</small></span>
+  </a>
+  <nav class="links" id="navLinks">
+    <a href="#inicio" data-i18n="nav_home">Inicio</a>
+    <a href="#molacho" data-i18n="nav_molacho">El Molacho</a>
+    <a href="#tatema" data-i18n="nav_tatema">La Tatema</a>
+    <a href="#clientes" data-i18n="nav_clients">Clientes</a>
+    <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+    <div class="lang">
+      <button id="es" class="active" onclick="setLang('es')">ES</button>
+      <button id="en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#mayoreo" class="nav-cta" data-i18n="nav_cta">Mayoreo</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Menú"><span></span><span></span><span></span></button>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-blob" style="width:340px;height:340px;background:rgba(232,163,61,.4);top:-60px;right:10%"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-text">
+      <span class="hero-badge" data-i18n="hero_badge">850+ puntos de venta activos</span>
+      <h1 data-i18n="hero_title">Tostadas Artesanales y <em>Salsas Mexicanas</em> para Hogares, Restaurantes y Negocios</h1>
+      <p class="sub" data-i18n="hero_sub">Productos elaborados con ingredientes de calidad, procesos artesanales y distribución confiable para cientos de negocios en México.</p>
+      <div class="hero-btns">
+        <a href="#molacho" class="btn btn-primary" data-i18n="hero_btn1">Ver Productos →</a>
+        <a href="#mayoreo" class="btn btn-ghost" data-i18n="hero_btn2">Solicitar Precios de Mayoreo</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="main-img" src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=900&q=80" alt="Tostadas y comida mexicana artesanal">
+      <div class="float-card fc1"><span class="ic">🌽</span><div><b>100% Maíz</b><small data-i18n="fc1">Sin conservadores</small></div></div>
+      <div class="float-card fc2"><span class="ic">🌶️</span><div><b>5 Salsas</b><small data-i18n="fc2">Chiltepín de Sonora</small></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust sec-pad">
+  <div class="wrap center reveal">
+    <span class="eyebrow" data-i18n="trust_eye">Confianza comprobada</span>
+    <h2 class="sec-title" data-i18n="trust_title">Más de 850 negocios confían en nosotros</h2>
+    <p class="sec-lead" data-i18n="trust_lead">Distribución demostrada en Ciudad de México, Estado de México y Morelos.</p>
+    <div class="stats">
+      <div class="stat"><div class="num" data-count="850">0</div><div class="lbl" data-i18n="stat1">Puntos de venta</div></div>
+      <div class="stat"><div class="num" data-count="550">0</div><div class="lbl" data-i18n="stat2">Establecimientos en CDMX y Edo. de México</div></div>
+      <div class="stat"><div class="num" data-count="300">0</div><div class="lbl" data-i18n="stat3">Tiendas y restaurantes en Morelos</div></div>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><span class="ic">🚚</span><span data-i18n="ben1">Distribución confiable</span></div>
+      <div class="benefit"><span class="ic">👐</span><span data-i18n="ben2">Productos artesanales</span></div>
+      <div class="benefit"><span class="ic">✅</span><span data-i18n="ben3">Calidad constante</span></div>
+      <div class="benefit"><span class="ic">📦</span><span data-i18n="ben4">Mayoreo y menudeo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MOLACHO -->
+<section class="brand sec-pad" id="molacho">
+  <div class="wrap">
+    <div class="brand-head reveal">
+      <div>
+        <span class="brand-tag tag-molacho" data-i18n="mol_tag">Marca 1 · Tostadas</span>
+        <h2>Tostadas <span class="serif-it" style="color:var(--maiz-dark)">El Molacho</span></h2>
+        <p class="sec-lead" data-i18n="mol_lead">Tostadas y totopos elaborados 100% de maíz mediante procesos artesanales y altos estándares de calidad.</p>
+        <ul class="feat-list">
+          <li data-i18n="mol_f1">Elaboración artesanal</li>
+          <li data-i18n="mol_f2">100% maíz</li>
+          <li data-i18n="mol_f3">Sin conservadores</li>
+          <li data-i18n="mol_f4">Sin levaduras</li>
+          <li data-i18n="mol_f5">Sabor distintivo</li>
+          <li data-i18n="mol_f6">+90 días de vida útil</li>
+          <li data-i18n="mol_f7">Conservan frescura</li>
+          <li data-i18n="mol_f8">Para todo consumidor</li>
+        </ul>
+      </div>
+      <div class="brand-img-wrap">
+        <span class="ring"></span>
+        <img src="https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=800&q=80" alt="Tostadas crujientes El Molacho">
+      </div>
+    </div>
+
+    <div class="highlight-box reveal">
+      <div class="hb-ic">💪</div>
+      <div>
+        <h3 data-i18n="mol_hl_t">Resistentes y crujientes</h3>
+        <p data-i18n="mol_hl_p">Nuestras tostadas mantienen su textura y resistencia para acompañar mariscos, ceviches, pozole, tostadas preparadas y una gran variedad de platillos sin romperse fácilmente.</p>
+      </div>
+    </div>
+
+    <div class="center reveal" style="margin-top:70px">
+      <span class="eyebrow" data-i18n="cat_eye">Catálogo</span>
+      <h2 class="sec-title" data-i18n="cat_title">Productos El Molacho</h2>
+    </div>
+    <div class="prod-grid reveal" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- MAYOREO MOLACHO -->
+<section class="sec-pad" id="mayoreo" style="background:var(--crema-2)">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow" data-i18n="may_eye">Mayoreo</span>
+      <h2 class="sec-title" data-i18n="may_title">Precios especiales para negocios</h2>
+      <p class="sec-lead" data-i18n="may_lead">Compra desde media caja y accede a precios preferenciales para restaurantes, marisquerías, tiendas y distribuidores.</p>
+    </div>
+    <div class="price-wrap reveal">
+      <table>
+        <thead><tr>
+          <th data-i18n="th_prod">Producto</th>
+          <th data-i18n="th_pkg">Por paquete</th>
+          <th data-i18n="th_half">Media caja</th>
+          <th data-i18n="th_full">Caja completa</th>
+        </tr></thead>
+        <tbody>
+          <tr><td data-i18n="p_t12">Tostada Redonda/Cuadrada #12</td><td class="price-val">$38</td><td class="price-val">$418</td><td class="price-val">$836</td></tr>
+          <tr><td data-i18n="p_t14">Tostada Redonda/Cuadrada #14</td><td class="price-val">$44</td><td class="price-val">$396</td><td class="price-val">$792</td></tr>
+          <tr><td data-i18n="p_toto">Totopo Triangular</td><td class="price-val">$38</td><td class="price-val">$342</td><td class="price-val">$684</td></tr>
+          <tr><td data-i18n="p_nacho">Nacho Circular</td><td class="price-val">$38</td><td class="price-val">$342</td><td class="price-val">$684</td></tr>
+          <tr><td data-i18n="p_ind">Tostada Individual #12</td><td class="price-val">$7.10</td><td class="price-val">$355</td><td class="price-val">$710</td></tr>
+          <tr><td data-i18n="p_indp">Tostada Individual Personalizada</td><td class="price-val">$8.80</td><td class="price-val">$440</td><td class="price-val">$880</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="price-note reveal">
+      <span data-i18n="may_note"><b>Condiciones:</b> Tostadas redondas/cuadradas: media caja = 11 paquetes · Totopos y nachos: media caja = 9 paquetes · Tostada individual: caja completa = 100 paquetes (300 tostadas).</span>
+    </div>
+  </div>
+</section>
+
+<!-- TATEMA -->
+<section class="brand sec-pad" id="tatema">
+  <div class="wrap">
+    <div class="brand-head reveal">
+      <div class="brand-img-wrap">
+        <span class="ring"></span>
+        <img src="https://images.unsplash.com/photo-1583224964978-2257b960c3d3?auto=format&fit=crop&w=800&q=80" alt="Salsas artesanales La Tatema">
+      </div>
+      <div>
+        <span class="brand-tag tag-tatema" data-i18n="tat_tag">Marca 2 · Salsas</span>
+        <h2>Salsas <span class="serif-it" style="color:var(--chile)">La Tatema</span></h2>
+        <p class="sec-lead" data-i18n="tat_lead">Salsas artesanales elaboradas con ingredientes naturales y chiles seleccionados para ofrecer una experiencia gastronómica auténticamente mexicana.</p>
+        <ul class="feat-list">
+          <li data-i18n="tat_f1">100% ingredientes naturales</li>
+          <li data-i18n="tat_f2">Excelente sabor</li>
+          <li data-i18n="tat_f3">Gran consistencia</li>
+          <li data-i18n="tat_f4">Buena textura</li>
+          <li data-i18n="tat_f5">Distintos niveles de picor</li>
+          <li data-i18n="tat_f6">1 año de anaquel</li>
+          <li data-i18n="tat_f7">No requieren refrigeración</li>
+          <li data-i18n="tat_f8">Para carnes, mariscos y botanas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="center reveal" style="margin-top:70px">
+      <span class="eyebrow" data-i18n="salsa_eye">Catálogo</span>
+      <h2 class="sec-title" data-i18n="salsa_title">Nuestras Salsas</h2>
+    </div>
+    <div class="salsa-grid reveal" id="salsaGrid"></div>
+  </div>
+</section>
+
+<!-- MAYOREO SALSAS -->
+<section class="sec-pad" style="background:var(--crema-2)">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow" data-i18n="sp_eye">Salsas · Precios</span>
+      <h2 class="sec-title" data-i18n="sp_title">Mayoreo y menudeo de salsas</h2>
+    </div>
+    <div class="price-tabs reveal">
+      <button class="price-tab active" onclick="switchTab(0,this)" data-i18n="tab_may">Mayoreo (180 ml)</button>
+      <button class="price-tab" onclick="switchTab(1,this)" data-i18n="tab_men">Menudeo</button>
+    </div>
+
+    <div class="tabpane active" id="pane0">
+      <div class="price-wrap reveal">
+        <table>
+          <thead><tr>
+            <th data-i18n="th_salsa">Salsa</th>
+            <th data-i18n="th_bot">Botella</th>
+            <th data-i18n="th_half2">Media caja</th>
+            <th data-i18n="th_full2">Caja</th>
+          </tr></thead>
+          <tbody>
+            <tr><td>La Makabrona 180 ml</td><td class="price-val">$50</td><td class="price-val">$300</td><td class="price-val">$600</td></tr>
+            <tr><td>La Makabra 180 ml</td><td class="price-val">$50</td><td class="price-val">$300</td><td class="price-val">$600</td></tr>
+            <tr><td>La Wantutri 180 ml</td><td class="price-val">$55</td><td class="price-val">$300</td><td class="price-val">$600</td></tr>
+            <tr><td>La Tropicalísima 180 ml</td><td class="price-val">$55</td><td class="price-val">$300</td><td class="price-val">$600</td></tr>
+            <tr><td>La Pelirroja 180 ml</td><td class="price-val">$50</td><td class="price-val">$300</td><td class="price-val">$600</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="price-note reveal"><span data-i18n="sp_note1"><b>Compra mínima:</b> media caja. Los sabores pueden combinarse para completar media caja o caja completa.</span></div>
+    </div>
+
+    <div class="tabpane" id="pane1">
+      <div class="price-wrap reveal">
+        <table>
+          <thead><tr><th data-i18n="th_salsa2">Salsa</th><th data-i18n="th_unit">Precio unitario</th></tr></thead>
+          <tbody>
+            <tr><td>La Makabrona</td><td class="price-val">$60</td></tr>
+            <tr><td>La Makabra</td><td class="price-val">$60</td></tr>
+            <tr><td>La Wantutri</td><td class="price-val">$65</td></tr>
+            <tr><td>La Tropicalísima</td><td class="price-val">$65</td></tr>
+            <tr><td>La Pelirroja</td><td class="price-val">$60</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="price-note reveal"><span data-i18n="sp_note2"><b>Pedido mínimo para entrega:</b> 4 botellas. Los sabores pueden combinarse.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients sec-pad" id="clientes">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow" data-i18n="cli_eye">Clientes</span>
+      <h2 class="sec-title" data-i18n="cli_title">Negocios que ya confían en nosotros</h2>
+      <p class="sec-lead" data-i18n="cli_lead">Nuestros productos forman parte de la operación diaria de restaurantes, marisquerías y comercios que buscan calidad, consistencia y sabor.</p>
+    </div>
+    <div class="client-grid reveal" id="clientGrid"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact sec-pad" id="contacto">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow" data-i18n="con_eye">Contacto</span>
+      <h2 class="sec-title" data-i18n="con_title">Hablemos de tu pedido</h2>
+      <p class="sec-lead" data-i18n="con_lead">Atención para mayoreo y menudeo en CDMX, Estado de México y Morelos.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="office">
+          <h4>📍 CDMX</h4>
+          <p>📌 <span>Av. Imán #808, Col. Pedregal de la Zorra, Ciudad de México</span></p>
+          <p>📞 <a href="tel:5576090266">55-7609-0266</a></p>
+          <p>✉️ <a href="mailto:tostadasiman@gmail.com">tostadasiman@gmail.com</a></p>
+        </div>
+        <div class="office">
+          <h4>📍 Cuernavaca</h4>
+          <p>📌 <span>Av. Vicente Guerrero 1610 Int. 1, Col. Lomas de Cortés, Cuernavaca, Morelos</span></p>
+          <p>📞 <a href="tel:5559516334">55-5951-6334</a></p>
+          <p>✉️ <a href="mailto:tostadashergui@gmail.com">tostadashergui@gmail.com</a></p>
+        </div>
+      </div>
+      <div class="form-card reveal">
+        <h3 data-i18n="form_title">Solicita tu cotización</h3>
+        <p class="fsub" data-i18n="form_sub">Déjanos tus datos y un asesor te contactará a la brevedad.</p>
+        <div class="field"><label data-i18n="f_name">Nombre / Negocio</label><input id="fName" type="text" placeholder="Tu nombre o restaurante"></div>
+        <div class="form-row">
+          <div class="field"><label data-i18n="f_phone">Teléfono</label><input id="fPhone" type="tel" placeholder="55 0000 0000"></div>
+          <div class="field"><label data-i18n="f_email">Correo</label><input id="fEmail" type="email" placeholder="correo@ejemplo.com"></div>
+        </div>
+        <div class="field"><label data-i18n="f_int">Me interesa</label>
+          <select id="fInt">
+            <option data-i18n="opt1">Tostadas El Molacho</option>
+            <option data-i18n="opt2">Salsas La Tatema</option>
+            <option data-i18n="opt3">Ambas marcas</option>
+            <option data-i18n="opt4">Distribución / Mayoreo</option>
+          </select>
+        </div>
+        <div class="field"><label data-i18n="f_msg">Mensaje</label><textarea id="fMsg" data-i18n-ph="ph_msg" placeholder="Cuéntanos qué necesitas..."></textarea></div>
+        <button class="btn btn-submit" onclick="sendForm()" data-i18n="f_send">Enviar por WhatsApp</button>
+        <div class="form-ok" id="formOk" data-i18n="f_ok">¡Listo! Abriendo WhatsApp para enviar tu mensaje.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="logo"><span class="mark">🌽</span><span>Hergui-Gam<small data-i18n="logo_sub">Distribución Artesanal</small></span></div>
+        <p data-i18n="foot_p">Grupo Hergui-Gam S.A. de C.V. Distribución de tostadas artesanales El Molacho y salsas La Tatema con calidad y tradición mexicana.</p>
+      </div>
+      <div class="foot-col">
+        <h5 data-i18n="foot_links">Enlaces</h5>
+        <a href="#inicio" data-i18n="nav_home">Inicio</a>
+        <a href="#molacho" data-i18n="nav_molacho">El Molacho</a>
+        <a href="#tatema" data-i18n="nav_tatema">La Tatema</a>
+        <a href="#clientes" data-i18n="nav_clients">Clientes</a>
+      </div>
+      <div class="foot-col">
+        <h5 data-i18n="foot_cat">Catálogo</h5>
+        <a href="#molacho" data-i18n="foot_tost">Tostadas</a>
+        <a href="#molacho" data-i18n="foot_toto">Totopos y Nachos</a>
+        <a href="#tatema" data-i18n="foot_salsa">Salsas</a>
+        <a href="#mayoreo" data-i18n="nav_cta">Mayoreo</a>
+      </div>
+      <div class="foot-col">
+        <h5 data-i18n="foot_contact">Contacto</h5>
+        <a href="tel:5576090266">55-7609-0266</a>
+        <a href="tel:5559516334">55-5951-6334</a>
+        <a href="mailto:tostadashergui@gmail.com">tostadashergui@gmail.com</a>
+        <div class="socials">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">◎</a>
+          <a href="https://wa.me/525576090266" aria-label="WhatsApp">✆</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Grupo Hergui-Gam S.A. de C.V. <span data-i18n="foot_rights">Todos los derechos reservados.</span></span>
+      <a href="#" data-i18n="foot_priv">Aviso de Privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/525576090266?text=Hola,%20me%20interesan%20sus%20productos" class="wa-float" target="_blank" aria-label="WhatsApp">✆</a>
+<span class="wa-tip" data-i18n="wa_tip">¡Escríbenos por WhatsApp!</span>
+
+<script>
+/* ===== DATA ===== */
+const products=[
+  {n:{es:"Tostada Redonda #12",en:"Round Tostada #12"},img:"https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=500&q=80",meta:["250 g","~22 pzas"]},
+  {n:{es:"Tostada Cuadrada #12",en:"Square Tostada #12"},img:"https://images.unsplash.com/photo-1606502973842-f64bc2785fe5?auto=format&fit=crop&w=500&q=80",meta:["250 g","~22 pzas"]},
+  {n:{es:"Tostada Redonda #14",en:"Round Tostada #14"},img:"https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=500&q=80",meta:["250 g","~22 pzas"]},
+  {n:{es:"Tostada Cuadrada #14",en:"Square Tostada #14"},img:"https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80",meta:["250 g","~22 pzas"]},
+  {n:{es:"Totopo Triangular",en:"Triangular Totopo"},img:"https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=500&q=80",meta:["250 g"]},
+  {n:{es:"Nacho Circular",en:"Circular Nacho"},img:"https://images.unsplash.com/photo-1582169296194-e4d644c48063?auto=format&fit=crop&w=500&q=80",meta:["250 g"]},
+  {n:{es:"Tostada Individual #12",en:"Individual Tostada #12"},img:"https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=500&q=80",meta:[{es:"Bolsa sellada",en:"Sealed bag"},{es:"3 pzas",en:"3 pcs"}]},
+];
+const salsas=[
+  {n:"La Makabrona",ing:{es:"Chiltepín silvestre de la Sierra de Sonora · Habanero deshidratado",en:"Wild chiltepín from Sierra de Sonora · Dehydrated habanero"},heat:5,hl:{es:"Extremo",en:"Extreme"},img:"https://images.unsplash.com/photo-1589227365533-cee630bd59bd?auto=format&fit=crop&w=500&q=80"},
+  {n:"La Makabra",ing:{es:"Chiltepín silvestre de la Sierra de Sonora",en:"Wild chiltepín from Sierra de Sonora"},heat:4,hl:{es:"Muy Alto",en:"Very High"},img:"https://images.unsplash.com/photo-1606914501449-5a96b6ce24ca?auto=format&fit=crop&w=500&q=80"},
+  {n:"La Wantutri",ing:{es:"Pulpa de tamarindo · Chiltepín silvestre · Habanero horneado",en:"Tamarind pulp · Wild chiltepín · Roasted habanero"},heat:3,hl:{es:"Alto",en:"High"},img:"https://images.unsplash.com/photo-1607672632458-9eb56696346b?auto=format&fit=crop&w=500&q=80"},
+  {n:"La Tropicalísima",ing:{es:"Salsa de soya · Chiltepín · Pulpa de mango · Habanero",en:"Soy sauce · Chiltepín · Mango pulp · Habanero"},heat:2,hl:{es:"Medio",en:"Medium"},img:"https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=500&q=80"},
+  {n:"La Pelirroja",ing:{es:"Chiltepín · Chile de árbol · Aceite de oliva · Ajo · Condimentos",en:"Chiltepín · Árbol chile · Olive oil · Garlic · Spices"},heat:2,hl:{es:"Medio",en:"Medium"},img:"https://images.unsplash.com/photo-1542990253-a781e04c0082?auto=format&fit=crop&w=500&q=80"},
+];
+const clients=["Potzollcalli","Las Hijas de la Tostada","La Ostra","El Costeñito","Playas de Sinaloa","Camarón Buchón"];
+
+let lang="es";
+
+function initials(name){return name.split(" ").filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join("").toUpperCase()||name[0]}
+
+function renderProducts(){
+  document.getElementById("prodGrid").innerHTML=products.map(p=>{
+    const meta=p.meta.map(m=>`<span>${typeof m==="object"?m[lang]:m}</span>`).join("");
+    return `<div class="prod-card"><div class="pimg"><img src="${p.img}" alt="${p.n[lang]}" loading="lazy"></div><div class="pbody"><h4>${p.n[lang]}</h4><div class="pmeta">${meta}</div></div></div>`;
+  }).join("");
+}
+function renderSalsas(){
+  document.getElementById("salsaGrid").innerHTML=salsas.map(s=>{
+    const ch=[1,2,3,4,5].map(i=>`<span class="${i<=s.heat?'on':''}">🌶️</span>`).join("");
+    const hLbl=lang==="es"?"Picor":"Heat";
+    return `<div class="salsa-card"><div class="simg"><img src="${s.img}" alt="${s.n}" loading="lazy"></div><div class="sbody"><h4>${s.n}</h4><p class="ingr">${s.ing[lang]}</p><div class="heat"><span class="heat-lbl">${hLbl}: ${s.hl[lang]}</span><div class="chiles">${ch}</div></div><div class="pres"><span>180 ml</span><span>500 ml</span></div></div></div>`;
+  }).join("");
+}
+function renderClients(){
+  document.getElementById("clientGrid").innerHTML=clients.map(c=>`<div class="client-card"><div class="clogo">${initials(c)}</div><div class="cname">${c}</div></div>`).join("");
+}
+
+/* ===== I18N ===== */
+const T={
+  meta_title:{es:"Grupo Hergui-Gam | Tostadas El Molacho y Salsas La Tatema",en:"Grupo Hergui-Gam | El Molacho Tostadas & La Tatema Salsas"},
+  logo_sub:{es:"Distribución Artesanal",en:"Artisan Distribution"},
+  nav_home:{es:"Inicio",en:"Home"},nav_molacho:{es:"El Molacho",en:"El Molacho"},nav_tatema:{es:"La Tatema",en:"La Tatema"},
+  nav_clients:{es:"Clientes",en:"Clients"},nav_contact:{es:"Contacto",en:"Contact"},nav_cta:{es:"Mayoreo",en:"Wholesale"},
+  hero_badge:{es:"850+ puntos de venta activos",en:"850+ active points of sale"},
+  hero_title:{es:'Tostadas Artesanales y <em>Salsas Mexicanas</em> para Hogares, Restaurantes y Negocios',en:'Artisan Tostadas and <em>Mexican Salsas</em> for Homes, Restaurants and Businesses'},
+  hero_sub:{es:"Productos elaborados con ingredientes de calidad, procesos artesanales y distribución confiable para cientos de negocios en México.",en:"Products made with quality ingredients, artisan processes and reliable distribution for hundreds of businesses across Mexico."},
+  hero_btn1:{es:"Ver Productos →",en:"View Products →"},hero_btn2:{es:"Solicitar Precios de Mayoreo",en:"Request Wholesale Pricing"},
+  fc1:{es:"Sin conservadores",en:"No preservatives"},fc2:{es:"Chiltepín de Sonora",en:"Sonora Chiltepín"},
+  trust_eye:{es:"Confianza comprobada",en:"Proven trust"},trust_title:{es:"Más de 850 negocios confían en nosotros",en:"Over 850 businesses trust us"},
+  trust_lead:{es:"Distribución demostrada en Ciudad de México, Estado de México y Morelos.",en:"Proven distribution across Mexico City, State of Mexico and Morelos."},
+  stat1:{es:"Puntos de venta",en:"Points of sale"},stat2:{es:"Establecimientos en CDMX y Edo. de México",en:"Locations in CDMX & State of Mexico"},stat3:{es:"Tiendas y restaurantes en Morelos",en:"Stores & restaurants in Morelos"},
+  ben1:{es:"Distribución confiable",en:"Reliable distribution"},ben2:{es:"Productos artesanales",en:"Artisan products"},ben3:{es:"Calidad constante",en:"Consistent quality"},ben4:{es:"Mayoreo y menudeo",en:"Wholesale & retail"},
+  mol_tag:{es:"Marca 1 · Tostadas",en:"Brand 1 · Tostadas"},
+  mol_lead:{es:"Tostadas y totopos elaborados 100% de maíz mediante procesos artesanales y altos estándares de calidad.",en:"Tostadas and totopos made 100% from corn through artisan processes and high quality standards."},
+  mol_f1:{es:"Elaboración artesanal",en:"Artisan made"},mol_f2:{es:"100% maíz",en:"100% corn"},mol_f3:{es:"Sin conservadores",en:"No preservatives"},mol_f4:{es:"Sin levaduras",en:"No yeast"},mol_f5:{es:"Sabor distintivo",en:"Distinctive flavor"},mol_f6:{es:"+90 días de vida útil",en:"+90 days shelf life"},mol_f7:{es:"Conservan frescura",en:"Keep freshness"},mol_f8:{es:"Para todo consumidor",en:"For every consumer"},
+  mol_hl_t:{es:"Resistentes y crujientes",en:"Sturdy and crunchy"},
+  mol_hl_p:{es:"Nuestras tostadas mantienen su textura y resistencia para acompañar mariscos, ceviches, pozole, tostadas preparadas y una gran variedad de platillos sin romperse fácilmente.",en:"Our tostadas keep their texture and strength to pair with seafood, ceviche, pozole, prepared tostadas and a wide variety of dishes without breaking easily."},
+  cat_eye:{es:"Catálogo",en:"Catalog"},cat_title:{es:"Productos El Molacho",en:"El Molacho Products"},
+  may_eye:{es:"Mayoreo",en:"Wholesale"},may_title:{es:"Precios especiales para negocios",en:"Special pricing for businesses"},
+  may_lead:{es:"Compra desde media caja y accede a precios preferenciales para restaurantes, marisquerías, tiendas y distribuidores.",en:"Buy from half a box and access preferred pricing for restaurants, seafood spots, stores and distributors."},
+  th_prod:{es:"Producto",en:"Product"},th_pkg:{es:"Por paquete",en:"Per pack"},th_half:{es:"Media caja",en:"Half box"},th_full:{es:"Caja completa",en:"Full box"},
+  p_t12:{es:"Tostada Redonda/Cuadrada #12",en:"Round/Square Tostada #12"},p_t14:{es:"Tostada Redonda/Cuadrada #14",en:"Round/Square Tostada #14"},p_toto:{es:"Totopo Triangular",en:"Triangular Totopo"},p_nacho:{es:"Nacho Circular",en:"Circular Nacho"},p_ind:{es:"Tostada Individual #12",en:"Individual Tostada #12"},p_indp:{es:"Tostada Individual Personalizada",en:"Custom Individual Tostada"},
+  may_note:{es:"<b>Condiciones:</b> Tostadas redondas/cuadradas: media caja = 11 paquetes · Totopos y nachos: media caja = 9 paquetes · Tostada individual: caja completa = 100 paquetes (300 tostadas).",en:"<b>Conditions:</b> Round/square tostadas: half box = 11 packs · Totopos & nachos: half box = 9 packs · Individual tostada: full box = 100 packs (300 tostadas)."},
+  tat_tag:{es:"Marca 2 · Salsas",en:"Brand 2 · Salsas"},
+  tat_lead:{es:"Salsas artesanales elaboradas con ingredientes naturales y chiles seleccionados para ofrecer una experiencia gastronómica auténticamente mexicana.",en:"Artisan salsas made with natural ingredients and selected chiles for an authentically Mexican culinary experience."},
+  tat_f1:{es:"100% ingredientes naturales",en:"100% natural ingredients"},tat_f2:{es:"Excelente sabor",en:"Excellent flavor"},tat_f3:{es:"Gran consistencia",en:"Great consistency"},tat_f4:{es:"Buena textura",en:"Good texture"},tat_f5:{es:"Distintos niveles de picor",en:"Different heat levels"},tat_f6:{es:"1 año de anaquel",en:"1 year shelf life"},tat_f7:{es:"No requieren refrigeración",en:"No refrigeration needed"},tat_f8:{es:"Para carnes, mariscos y botanas",en:"For meats, seafood & snacks"},
+  salsa_eye:{es:"Catálogo",en:"Catalog"},salsa_title:{es:"Nuestras Salsas",en:"Our Salsas"},
+  sp_eye:{es:"Salsas · Precios",en:"Salsas · Pricing"},sp_title:{es:"Mayoreo y menudeo de salsas",en:"Salsa wholesale & retail"},
+  tab_may:{es:"Mayoreo (180 ml)",en:"Wholesale (180 ml)"},tab_men:{es:"Menudeo",en:"Retail"},
+  th_salsa:{es:"Salsa",en:"Salsa"},th_bot:{es:"Botella",en:"Bottle"},th_half2:{es:"Media caja",en:"Half box"},th_full2:{es:"Caja",en:"Box"},
+  th_salsa2:{es:"Salsa",en:"Salsa"},th_unit:{es:"Precio unitario",en:"Unit price"},
+  sp_note1:{es:"<b>Compra mínima:</b> media caja. Los sabores pueden combinarse para completar media caja o caja completa.",en:"<b>Minimum purchase:</b> half box. Flavors can be combined to complete a half or full box."},
+  sp_note2:{es:"<b>Pedido mínimo para entrega:</b> 4 botellas. Los sabores pueden combinarse.",en:"<b>Minimum delivery order:</b> 4 bottles. Flavors can be combined."},
+  cli_eye:{es:"Clientes",en:"Clients"},cli_title:{es:"Negocios que ya confían en nosotros",en:"Businesses that already trust us"},
+  cli_lead:{es:"Nuestros productos forman parte de la operación diaria de restaurantes, marisquerías y comercios que buscan calidad, consistencia y sabor.",en:"Our products are part of the daily operation of restaurants, seafood spots and shops seeking quality, consistency and flavor."},
+  con_eye:{es:"Contacto",en:"Contact"},con_title:{es:"Hablemos de tu pedido",en:"Let's talk about your order"},
+  con_lead:{es:"Atención para mayoreo y menudeo en CDMX, Estado de México y Morelos.",en:"Wholesale & retail service in CDMX, State of Mexico and Morelos."},
+  form_title:{es:"Solicita tu cotización",en:"Request your quote"},form_sub:{es:"Déjanos tus datos y un asesor te contactará a la brevedad.",en:"Leave your details and an advisor will contact you shortly."},
+  f_name:{es:"Nombre / Negocio",en:"Name / Business"},f_phone:{es:"Teléfono",en:"Phone"},f_email:{es:"Correo",en:"Email"},f_int:{es:"Me interesa",en:"I'm interested in"},
+  opt1:{es:"Tostadas El Molacho",en:"El Molacho Tostadas"},opt2:{es:"Salsas La Tatema",en:"La Tatema Salsas"},opt3:{es:"Ambas marcas",en:"Both brands"},opt4:{es:"Distribución / Mayoreo",en:"Distribution / Wholesale"},
+  f_msg:{es:"Mensaje",en:"Message"},ph_msg:{es:"Cuéntanos qué necesitas...",en:"Tell us what you need..."},f_send:{es:"Enviar por WhatsApp",en:"Send via WhatsApp"},
+  f_ok:{es:"¡Listo! Abriendo WhatsApp para enviar tu mensaje.",en:"Done! Opening WhatsApp to send your message."},
+  foot_p:{es:"Grupo Hergui-Gam S.A. de C.V. Distribución de tostadas artesanales El Molacho y salsas La Tatema con calidad y tradición mexicana.",en:"Grupo Hergui-Gam S.A. de C.V. Distribution of El Molacho artisan tostadas and La Tatema salsas with Mexican quality and tradition."},
+  foot_links:{es:"Enlaces",en:"Links"},foot_cat:{es:"Catálogo",en:"Catalog"},foot_contact:{es:"Contacto",en:"Contact"},
+  foot_tost:{es:"Tostadas",en:"Tostadas"},foot_toto:{es:"Totopos y Nachos",en:"Totopos & Nachos"},foot_salsa:{es:"Salsas",en:"Salsas"},
+  foot_rights:{es:"Todos los derechos reservados.",en:"All rights reserved."},foot_priv:{es:"Aviso de Privacidad",en:"Privacy Notice"},
+  wa_tip:{es:"¡Escríbenos por WhatsApp!",en:"Message us on WhatsApp!"},
+  meta_desc:{es:"Distribución de tostadas artesanales El Molacho y salsas La Tatema. Más de 850 puntos de venta en CDMX, Estado de México y Morelos.",en:"Distribution of El Molacho artisan tostadas and La Tatema salsas. Over 850 points of sale across CDMX, State of Mexico and Morelos."},
+};
+
+function setLang(l){
+  lang=l;
+  document.documentElement.lang=l;
+  document.getElementById("es").classList.toggle("active",l==="es");
+  document.getElementById("en").classList.toggle("active",l==="en");
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k=el.getAttribute("data-i18n");
+    if(T[k]&&T[k][l]!==undefined){
+      if(el.tagName==="TITLE"||el.tagName==="META"){el.tagName==="META"?el.setAttribute("content",T[k][l]):el.textContent=T[k][l];}
+      else el.innerHTML=T[k][l];
+    }
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el=>{
+    const k=el.getAttribute("data-i18n-ph");if(T[k])el.placeholder=T[k][l];
+  });
+  renderProducts();renderSalsas();renderClients();
+  // close mobile menu
+  document.getElementById("navLinks").classList.remove("open");
+  document.getElementById("burger").classList.remove("x");
+}
+
+/* ===== TABS ===== */
+function switchTab(i,btn){
+  document.querySelectorAll(".price-tab").forEach(t=>t.classList.remove("active"));
+  document.querySelectorAll(".tabpane").forEach(p=>p.classList.remove("active"));
+  btn.classList.add("active");
+  document.getElementById("pane"+i).classList.add("active");
+}
+
+/* ===== FORM -> WhatsApp ===== */
+function sendForm(){
+  const n=document.getElementById("fName").value||"(sin nombre)";
+  const p=document.getElementById("fPhone").value||"";
+  const e=document.getElementById("fEmail").value||"";
+  const i=document.getElementById("fInt").value;
+  const m=document.getElementById("fMsg").value||"";
+  const txt=`Hola Hergui-Gam!%0A%0ANombre/Negocio: ${n}%0ATeléfono: ${p}%0ACorreo: ${e}%0AInterés: ${i}%0AMensaje: ${m}`;
+  document.getElementById("formOk").classList.add("show");
+  setTimeout(()=>window.open(`https://wa.me/525576090266?text=${encodeURIComponent(decodeURIComponent(txt))}`,"_blank"),600);
+}
+
+/* ===== NAV / SCROLL ===== */
+const nav=document.getElementById("nav");
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",window.scrollY>40));
+const burger=document.getElementById("burger"),navLinks=document.getElementById("navLinks");
+burger.addEventListener("click",()=>{navLinks.classList.toggle("open");burger.classList.toggle("x")});
+navLinks.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");burger.classList.remove("x")}));
+
+/* ===== REVEAL + COUNTERS ===== */
+const io=new IntersectionObserver(es=>es.forEach(en=>{
+  if(en.isIntersecting){
+    en.target.classList.add("in");
+    en.target.querySelectorAll("[data-count]").forEach(c=>{
+      const tgt=+c.dataset.count;let cur=0;const step=tgt/55;
+      const t=setInterval(()=>{cur+=step;if(cur>=tgt){c.textContent=tgt+"+";clearInterval(t)}else c.textContent=Math.floor(cur)+"+"},22);
+    });
+    io.unobserve(en.target);
+  }
+}),{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+
+/* INIT */
+renderProducts();renderSalsas();renderClients();
+</script>
+</body>
+</html>
