@@ -770,11 +770,11 @@ const products=[
   {n:{es:"Tostada Individual Cuadrada",en:"Square Individual Tostada"},img:"images/productos/tostada-individual-cuadrada.png",meta:[{es:"Bolsa sellada",en:"Sealed bag"},{es:"3 pzas",en:"3 pcs"}]},
 ];
 const salsas=[
-  {n:"La Tropicalísima",ing:{es:"Salsa de soya · Chiltepín · Pulpa de mango · Habanero chocolate deshidratado",en:"Soy sauce · Chiltepín · Mango pulp · Chocolate habanero dehydrated"},heat:2,hl:{es:"Medio",en:"Medium"},img:"images/productos/la-tropicalisima.jpeg"},
-  {n:"La Pelirroja",ing:{es:"Chiltepín · Chile de árbol · Aceite de oliva · Ajo · Condimentos",en:"Chiltepín · Árbol chile · Olive oil · Garlic · Spices"},heat:2,hl:{es:"Medio",en:"Medium"},img:"images/productos/la-pelirroja.jpeg"},
-  {n:"La Wantutri",ing:{es:"Chiltepín · Pulpa de tamarindo · Habanero chocolate deshidratado",en:"Chiltepín · Tamarind pulp · Chocolate habanero dehydrated"},heat:3,hl:{es:"Alto",en:"High"},img:"images/productos/la-wantutri.jpeg"},
-  {n:"La Makabra",ing:{es:"Chiltepín",en:"Chiltepín"},heat:4,hl:{es:"Muy Alto",en:"Very High"},img:"images/productos/la-makabra.jpeg"},
-  {n:"La Makabrona",ing:{es:"Chiltepín · Habanero chocolate deshidratado",en:"Chiltepín · Chocolate habanero dehydrated"},heat:5,hl:{es:"Extremo",en:"Extreme"},img:"images/productos/la-makabrona.jpeg"},
+  {n:"La Tropicalísima",ing:{es:"Chiltepín · Pulpa de mango · Habanero chocolate deshidratado · Salsa negra",en:"Chiltepín · Mango pulp · Chocolate habanero dehydrated · Salsa negra"},heat:2,hl:{es:"Medio",en:"Medium"},img:"images/productos/la-tropicalisima.jpeg"},
+  {n:"La Pelirroja",ing:{es:"Chiltepín · Chile de árbol · Aceite de oliva · Ajo · Condimentos · Salsa negra",en:"Chiltepín · Árbol chile · Olive oil · Garlic · Spices · Salsa negra"},heat:2,hl:{es:"Medio",en:"Medium"},img:"images/productos/la-pelirroja.jpeg"},
+  {n:"La Wantutri",ing:{es:"Chiltepín · Pulpa de tamarindo · Habanero chocolate deshidratado · Salsa negra",en:"Chiltepín · Tamarind pulp · Chocolate habanero dehydrated · Salsa negra"},heat:3,hl:{es:"Alto",en:"High"},img:"images/productos/la-wantutri.jpeg"},
+  {n:"La Makabra",ing:{es:"Chiltepín · Salsa negra",en:"Chiltepín · Salsa negra"},heat:4,hl:{es:"Muy Alto",en:"Very High"},img:"images/productos/la-makabra.jpeg"},
+  {n:"La Makabrona",ing:{es:"Chiltepín · Habanero chocolate deshidratado · Salsa negra",en:"Chiltepín · Chocolate habanero dehydrated · Salsa negra"},heat:5,hl:{es:"Extremo",en:"Extreme"},img:"images/productos/la-makabrona.jpeg"},
 ];
 const clients=["Sodexo","Yema","Potzollcalli","Cervecería Hércules","Maviri","Los Cocos","Playas de Sinaloa","Red Fish"];
 
@@ -802,7 +802,7 @@ function renderSalsas(){
       </div>
       <div class="scard-details">
         <p class="ingr">${s.ing[lang]}</p>
-        <div class="pres"><span>180 ml</span><span>Salsa negra</span></div>
+        <div class="pres"><span>180 ml</span></div>
       </div>
     </div>`;
   }).join("");
