@@ -283,14 +283,12 @@ section{position:relative;z-index:2}
 .salsa-card{
   background:var(--blanco);border-radius:var(--r);overflow:hidden;
   box-shadow:0 8px 24px rgba(122,19,24,.07);transition:box-shadow .4s,transform .4s;
-  border:1px solid rgba(122,19,24,.07);cursor:pointer;
+  border:1px solid rgba(122,19,24,.07);
 }
 .salsa-card:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(122,19,24,.18)}
-.salsa-card.open{box-shadow:0 22px 50px rgba(122,19,24,.2);transform:translateY(-6px)}
-.salsa-card .simg{height:260px;overflow:hidden;transition:height .4s var(--ease-expo);background:var(--crema);display:flex;align-items:center;justify-content:center;padding:14px}
-.salsa-card.open .simg{height:300px}
+.salsa-card .simg{height:260px;overflow:hidden;background:var(--crema);display:flex;align-items:center;justify-content:center;padding:14px}
 .salsa-card .simg img{width:auto;height:100%;max-width:100%;object-fit:contain;transition:.6s}
-.salsa-card:hover .simg img,.salsa-card.open .simg img{transform:scale(1.04)}
+.salsa-card:hover .simg img{transform:scale(1.04)}
 .salsa-card .sbody{padding:18px 20px}
 .salsa-card h4{font-size:1.3rem;color:var(--chile-deep);margin-bottom:10px;line-height:1.1}
 /* heat row */
@@ -299,26 +297,11 @@ section{position:relative;z-index:2}
 .chiles{display:flex;gap:2px}
 .chiles span{font-size:1rem;line-height:1;filter:grayscale(1) opacity(.25)}
 .chiles span.on{filter:none}
-/* expandable details */
-.scard-details{
-  max-height:0;overflow:hidden;
-  transition:max-height .45s var(--ease-expo),padding .45s var(--ease-expo);
-  padding:0 20px;
-}
-.salsa-card.open .scard-details{max-height:180px;padding:14px 20px 0}
+/* details always visible */
+.scard-details{padding:14px 20px 0}
 .scard-details .ingr{font-size:.88rem;color:var(--tinta-soft);line-height:1.55;margin-bottom:12px}
 .pres{display:flex;gap:8px}
 .pres span{background:rgba(166,28,34,.1);color:var(--chile);font-size:.74rem;font-weight:600;padding:4px 11px;border-radius:20px}
-/* toggle button */
-.scard-toggle{
-  display:flex;align-items:center;justify-content:center;gap:5px;
-  width:100%;border:0;background:none;cursor:pointer;
-  font-size:.78rem;font-weight:600;color:var(--chile);letter-spacing:.3px;
-  padding:12px 20px 16px;font-family:'Outfit';transition:color .2s;
-}
-.scard-toggle .arr{display:inline-block;transition:transform .35s var(--ease-expo)}
-.salsa-card.open .scard-toggle .arr{transform:rotate(180deg)}
-.scard-toggle:hover{color:var(--chile-deep)}
 /* mobile */
 @media(max-width:600px){
   .salsa-grid{grid-template-columns:1fr;gap:16px}
@@ -805,11 +788,9 @@ function renderProducts(){
   }).join("");
 }
 function renderSalsas(){
-  const hLbl=lang==="es"?"Picor":"Heat";
-  const verDet=lang==="es"?"Ver detalles":"Details";
   document.getElementById("salsaGrid").innerHTML=salsas.map((s,i)=>{
     const ch=[1,2,3,4,5].map(j=>`<span class="${j<=s.heat?'on':''}">🔥</span>`).join("");
-    return `<div class="salsa-card" style="animation-delay:${i*90}ms" onclick="this.classList.toggle('open')">
+    return `<div class="salsa-card" style="animation-delay:${i*90}ms">
       <div class="simg"><img src="${s.img}" alt="${s.n}" loading="lazy"></div>
       <div class="sbody">
         <h4>${s.n}</h4>
@@ -822,7 +803,6 @@ function renderSalsas(){
         <p class="ingr">${s.ing[lang]}</p>
         <div class="pres"><span>180 ml</span><span>500 ml</span></div>
       </div>
-      <button class="scard-toggle" onclick="event.stopPropagation();this.closest('.salsa-card').classList.toggle('open')">${verDet} <span class="arr">▾</span></button>
     </div>`;
   }).join("");
 }
