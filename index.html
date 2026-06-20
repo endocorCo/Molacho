@@ -288,11 +288,10 @@ section{position:relative;z-index:2}
 }
 .salsa-card:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(122,19,24,.18)}
 .salsa-card.open{box-shadow:0 22px 50px rgba(122,19,24,.2);transform:translateY(-6px)}
-.salsa-card .simg{height:200px;overflow:hidden;transition:height .5s var(--ease-expo);background:var(--crema);display:flex;align-items:center;justify-content:center}
+.salsa-card .simg{height:260px;overflow:hidden;transition:height .4s var(--ease-expo);background:var(--crema);display:flex;align-items:center;justify-content:center;padding:14px}
 .salsa-card.open .simg{height:300px}
-.salsa-card .simg img{width:100%;height:100%;object-fit:cover;transition:object-fit 0s,width .5s var(--ease-expo),height .5s var(--ease-expo);transition:.5s var(--ease-expo)}
-.salsa-card.open .simg img{object-fit:contain;padding:10px}
-.salsa-card:hover:not(.open) .simg img{transform:scale(1.06)}
+.salsa-card .simg img{width:auto;height:100%;max-width:100%;object-fit:contain;transition:.6s}
+.salsa-card:hover .simg img,.salsa-card.open .simg img{transform:scale(1.04)}
 .salsa-card .sbody{padding:18px 20px}
 .salsa-card h4{font-size:1.3rem;color:var(--chile-deep);margin-bottom:10px;line-height:1.1}
 /* heat row */
