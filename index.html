@@ -353,6 +353,7 @@ tbody td:first-child{font-weight:600;color:var(--tinta)}
   font-family:'Fraunces';font-weight:900;font-size:.78rem;color:var(--maiz-dark);
   letter-spacing:.02em;
 }
+.client-roster li img.ci{background:#fff;object-fit:contain;padding:4px;border:1px solid rgba(122,19,24,.08)}
 @media(max-width:980px){.client-roster{columns:2}}
 @media(max-width:560px){.client-roster{columns:1}}
 
@@ -778,7 +779,16 @@ const salsas=[
   {n:"La Makabra",ing:{es:"Chiltepín · Salsa negra",en:"Chiltepín · Salsa negra"},heat:4,hl:{es:"Muy Alto",en:"Very High"},img:"images/productos/la-makabra.jpeg"},
   {n:"La Makabrona",ing:{es:"Chiltepín · Habanero chocolate deshidratado · Salsa negra",en:"Chiltepín · Chocolate habanero dehydrated · Salsa negra"},heat:5,hl:{es:"Extremo",en:"Extreme"},img:"images/productos/la-makabrona.jpeg"},
 ];
-const clients=["Sodexo","Yema","Potzollcalli","Cervecería Hércules","Maviri","Los Cocos","Playas de Sinaloa","Red Fish"];
+const clients=[
+  {n:"Sodexo"},
+  {n:"Yema"},
+  {n:"Potzollcalli",logo:"images/clientes/potzollcalli.png"},
+  {n:"Cervecería Hércules",logo:"images/clientes/cerveceria-hercules.jpeg"},
+  {n:"Maviri"},
+  {n:"Los Cocos"},
+  {n:"Playas de Sinaloa",logo:"images/clientes/playas-de-sinaloa.jpeg"},
+  {n:"Red Fish"},
+];
 
 let lang="es";
 
@@ -810,7 +820,10 @@ function renderSalsas(){
   }).join("");
 }
 function renderClients(){
-  document.getElementById("clientGrid").innerHTML=clients.map((c,i)=>`<li style="animation-delay:${i*40}ms"><span class="ci">${initials(c)}</span>${c}</li>`).join("");
+  document.getElementById("clientGrid").innerHTML=clients.map((c,i)=>{
+    const mark=c.logo?`<img class="ci" src="${c.logo}" alt="${c.n}">`:`<span class="ci">${initials(c.n)}</span>`;
+    return `<li style="animation-delay:${i*40}ms">${mark}${c.n}</li>`;
+  }).join("");
 }
 
 /* ===== I18N ===== */
