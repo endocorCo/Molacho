@@ -322,6 +322,7 @@ tbody td{padding:15px 18px;border-bottom:1px solid rgba(122,19,24,.07);font-size
 tbody tr:hover{background:rgba(247,148,29,.07)}
 tbody td:first-child{font-weight:600;color:var(--tinta)}
 .price-val{font-family:'Fraunces';font-weight:600;color:var(--chile-deep);font-variant-numeric:tabular-nums}
+.price-val .pkg-ct{font-family:'Outfit';font-size:.78rem;font-weight:500;color:var(--tinta-soft);margin-left:4px}
 .price-note{margin-top:18px;padding:18px 22px;background:rgba(247,148,29,.1);border-radius:14px;font-size:.88rem;color:var(--tinta-soft);border:1px solid rgba(247,148,29,.3)}
 .price-note b{color:var(--chile-deep)}
 .price-tabs{display:flex;gap:10px;margin-top:40px;flex-wrap:wrap}
@@ -473,8 +474,8 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
   <div class="wrap hero-grid">
     <div class="hero-text">
       <span class="hero-badge" data-i18n="hero_badge">850+ puntos de venta activos</span>
-      <h1 data-i18n="hero_title">Tostadas Artesanales y <em>Salsas a Base de Chiltepín</em></h1>
-      <p class="sub" data-i18n="hero_sub">Tostadas horneadas y salsas artesanales a base de chiltepín.</p>
+      <h1 data-i18n="hero_title">Tostadas horneadas y <em>salsas artesanales a base de chiltepín</em></h1>
+      <p class="sub" data-i18n="hero_sub">Productos elaborados con ingredientes de calidad y procesos artesanales para negocios en México.</p>
       <div class="hero-btns">
         <a href="#molacho" class="btn btn-primary" data-i18n="hero_btn1">Ver Productos →</a>
         <a href="#mayoreo" class="btn btn-ghost" data-i18n="hero_btn2">Solicitar Precios de Mayoreo</a>
@@ -560,12 +561,12 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
           <th data-i18n="th_full">Caja completa</th>
         </tr></thead>
         <tbody>
-          <tr><td data-i18n="p_t12">Tostada Redonda/Cuadrada #12</td><td class="price-val">$38</td><td class="price-val">$418</td><td class="price-val">$836</td></tr>
-          <tr><td data-i18n="p_t14">Tostada Redonda/Cuadrada #14</td><td class="price-val">$44</td><td class="price-val">$396</td><td class="price-val">$792</td></tr>
-          <tr><td data-i18n="p_toto">Totopo Triangular</td><td class="price-val">$38</td><td class="price-val">$342</td><td class="price-val">$684</td></tr>
-          <tr><td data-i18n="p_nacho">Nacho Circular</td><td class="price-val">$38</td><td class="price-val">$342</td><td class="price-val">$684</td></tr>
-          <tr><td data-i18n="p_ind">Tostada Individual #12</td><td class="price-val">$7.10</td><td class="price-val">$355</td><td class="price-val">$710</td></tr>
-          <tr><td data-i18n="p_indp">Tostada Individual Personalizada</td><td class="price-val">$8.80</td><td class="price-val">$440</td><td class="price-val">$880</td></tr>
+          <tr><td data-i18n="p_t12">Tostada Redonda/Cuadrada #12</td><td class="price-val">$38</td><td class="price-val">$418<span class="pkg-ct">(9 paquetes)</span></td><td class="price-val">$836<span class="pkg-ct">(18 paquetes)</span></td></tr>
+          <tr><td data-i18n="p_t14">Tostada Redonda/Cuadrada #14</td><td class="price-val">$44</td><td class="price-val">$396<span class="pkg-ct">(9 paquetes)</span></td><td class="price-val">$792<span class="pkg-ct">(18 paquetes)</span></td></tr>
+          <tr><td data-i18n="p_toto">Totopo Triangular</td><td class="price-val">$38</td><td class="price-val">$342<span class="pkg-ct">(9 paquetes)</span></td><td class="price-val">$684<span class="pkg-ct">(18 paquetes)</span></td></tr>
+          <tr><td data-i18n="p_nacho">Nacho Circular</td><td class="price-val">$38</td><td class="price-val">$342<span class="pkg-ct">(9 paquetes)</span></td><td class="price-val">$684<span class="pkg-ct">(18 paquetes)</span></td></tr>
+          <tr><td data-i18n="p_ind">Tostada Individual #12</td><td class="price-val">$7.10</td><td class="price-val">$355<span class="pkg-ct">(50 paquetes)</span></td><td class="price-val">$710<span class="pkg-ct">(100 paquetes)</span></td></tr>
+          <tr><td data-i18n="p_indp">Tostada Individual Personalizada</td><td class="price-val">$8.80</td><td class="price-val">$440<span class="pkg-ct">(50 paquetes)</span></td><td class="price-val">$880<span class="pkg-ct">(100 paquetes)</span></td></tr>
         </tbody>
       </table>
     </div>
@@ -818,8 +819,8 @@ const T={
   nav_home:{es:"Inicio",en:"Home"},nav_molacho:{es:"El Molacho",en:"El Molacho"},nav_tatema:{es:"La Tatema",en:"La Tatema"},
   nav_clients:{es:"Clientes",en:"Clients"},nav_contact:{es:"Contacto",en:"Contact"},nav_cta:{es:"Mayoreo",en:"Wholesale"},
   hero_badge:{es:"850+ puntos de venta activos",en:"850+ active points of sale"},
-  hero_title:{es:'Tostadas Artesanales y <em>Salsas a Base de Chiltepín</em>',en:'Artisan Tostadas and <em>Chiltepín-Based Salsas</em>'},
-  hero_sub:{es:"Tostadas horneadas y salsas artesanales a base de chiltepín.",en:"Baked tostadas and artisan chiltepín-based salsas."},
+  hero_title:{es:'Tostadas horneadas y <em>salsas artesanales a base de chiltepín</em>',en:'Baked tostadas and <em>artisan chiltepín-based salsas</em>'},
+  hero_sub:{es:"Productos elaborados con ingredientes de calidad y procesos artesanales para negocios en México.",en:"Made with quality ingredients and artisan processes for businesses across Mexico."},
   hero_btn1:{es:"Ver Productos →",en:"View Products →"},hero_btn2:{es:"Solicitar Precios de Mayoreo",en:"Request Wholesale Pricing"},
   fc1:{es:"Sin conservadores",en:"No preservatives"},fc2:{es:"Chiltepín de Sonora",en:"Sonora Chiltepín"},
   trust_eye:{es:"Confianza comprobada",en:"Proven trust"},trust_title:{es:"Más de 850 negocios confían en nosotros",en:"Over 850 businesses trust us"},
