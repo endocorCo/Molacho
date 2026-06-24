@@ -135,17 +135,6 @@ nav.links a:hover{color:var(--chile-deep);background:rgba(247,148,29,.14)}
   width:100%;height:auto;display:block;object-fit:contain;
   border-radius:24px;box-shadow:0 12px 35px rgba(0,0,0,.12);
 }
-.float-card{
-  position:absolute;background:rgba(255,253,248,.93);backdrop-filter:blur(8px);
-  padding:14px 18px;border-radius:16px;box-shadow:0 14px 34px rgba(122,19,24,.18);
-  display:flex;align-items:center;gap:12px;
-}
-.float-card .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:1.2rem;background:linear-gradient(135deg,var(--maiz),var(--chile));color:#fff}
-.float-card b{display:block;font-family:'Fraunces';font-size:1.1rem;color:var(--chile-deep);line-height:1}
-.float-card small{font-size:.72rem;color:var(--tinta-soft)}
-.fc1{top:24px;left:-26px;animation:floaty 4s ease-in-out infinite}
-.fc2{bottom:30px;right:-22px;animation:floaty 4s ease-in-out infinite 1.5s}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .hero-blob{position:absolute;border-radius:50%;filter:blur(60px);z-index:0}
 
 
@@ -202,7 +191,6 @@ header.nav{transition:background .4s var(--ease-quint),box-shadow .4s var(--ease
 .btn:focus-visible{outline:3px solid var(--maiz);outline-offset:3px}
 nav.links a:focus-visible{outline:2px solid var(--chile);outline-offset:2px}
 .price-tab:focus-visible,.lang button:focus-visible{outline:2px solid var(--chile);outline-offset:2px}
-.scard-toggle:focus-visible{outline:2px solid var(--maiz);outline-offset:2px}
 
 /* prefers-reduced-motion */
 @media(prefers-reduced-motion:reduce){
@@ -232,8 +220,8 @@ section{position:relative;z-index:2}
 .stat:hover{background:rgba(255,255,255,.04);transform:translateY(-4px)}
 .stat .num{font-family:'Fraunces';font-size:clamp(3.2rem,6vw,5rem);font-weight:900;color:var(--maiz);line-height:1;letter-spacing:-0.04em;font-variant-numeric:tabular-nums}
 .stat .lbl{margin-top:12px;font-size:.9rem;opacity:.75;letter-spacing:.02em}
-.trust-pillars{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;margin-top:44px;border-top:1px solid rgba(255,255,255,.12);padding-top:0}
-.trust-pillars li{font-size:.95rem;font-weight:600;color:rgba(255,255,255,.75);letter-spacing:.04em;text-transform:uppercase;padding:22px 32px;border-right:1px solid rgba(255,255,255,.1)}
+.trust-pillars{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;margin-top:76px;border-top:1px solid rgba(255,255,255,.12);padding-top:0}
+.trust-pillars li{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.04em;text-transform:uppercase;padding:18px 32px;border-right:1px solid rgba(255,255,255,.1)}
 .trust-pillars li:last-child{border-right:0}
 
 /* BRAND BLOCK */
@@ -377,6 +365,9 @@ tbody td:first-child{font-weight:600;color:var(--tinta)}
 }
 .field input:focus,.field textarea:focus,.field select:focus{outline:0;border-color:var(--chile);background:#fff;box-shadow:0 0 0 4px rgba(166,28,34,.08)}
 .field textarea{resize:vertical;min-height:110px}
+.field-err{display:none;margin-top:6px;font-size:.8rem;color:var(--chile-deep);font-weight:500}
+.field.invalid input{border-color:var(--chile);background:#fff}
+.field.invalid .field-err{display:block}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .btn-submit{width:100%;justify-content:center;background:var(--chile);color:#fff;box-shadow:0 12px 28px var(--shadow);margin-top:6px}
 .btn-submit:hover{background:var(--chile-deep);transform:translateY(-2px)}
@@ -403,7 +394,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
 .wa-float{
   position:fixed;bottom:26px;right:26px;z-index:200;width:62px;height:62px;border-radius:50%;
   background:#25D366;display:grid;place-items:center;color:#fff;font-size:1.9rem;
-  box-shadow:0 10px 30px rgba(37,211,102,.5);transition:.3s;animation:waPulse 2.4s infinite;
+  box-shadow:0 10px 30px rgba(37,211,102,.5);transition:.3s;animation:waPulse 2.4s 3;
 }
 .wa-float:hover{transform:scale(1.1)}
 @keyframes waPulse{0%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 10px 30px rgba(37,211,102,.5),0 0 0 0 rgba(37,211,102,0)}}
@@ -426,7 +417,6 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
   .lang{margin:14px 0 0}
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .hero-visual{order:-1}
-  .fc1{left:0}.fc2{right:0}
   .brand-head{grid-template-columns:1fr;gap:34px}
   .brand-img-wrap img{height:auto}
   .stats{grid-template-columns:1fr;gap:0}
@@ -695,9 +685,9 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
       <div class="form-card reveal">
         <h3 data-i18n="form_title">Solicita tu cotización</h3>
         <p class="fsub" data-i18n="form_sub">Déjanos tus datos y un asesor te contactará a la brevedad.</p>
-        <div class="field"><label for="fName" data-i18n="f_name">Nombre / Negocio</label><input id="fName" type="text" placeholder="Tu nombre o restaurante" required></div>
+        <div class="field"><label for="fName" data-i18n="f_name">Nombre / Negocio</label><input id="fName" type="text" placeholder="Tu nombre o restaurante" required aria-describedby="fNameErr"><span class="field-err" id="fNameErr" data-i18n="f_name_err">Escribe tu nombre o el de tu negocio.</span></div>
         <div class="form-row">
-          <div class="field"><label for="fPhone" data-i18n="f_phone">Teléfono</label><input id="fPhone" type="tel" placeholder="55 0000 0000" required></div>
+          <div class="field"><label for="fPhone" data-i18n="f_phone">Teléfono</label><input id="fPhone" type="tel" placeholder="55 0000 0000" required aria-describedby="fPhoneErr"><span class="field-err" id="fPhoneErr" data-i18n="f_phone_err">Escribe un teléfono de 10 dígitos para contactarte.</span></div>
           <div class="field"><label for="fEmail" data-i18n="f_email">Correo</label><input id="fEmail" type="email" placeholder="correo@ejemplo.com"></div>
         </div>
         <div class="field"><label for="fInt" data-i18n="f_int">Me interesa</label>
@@ -867,6 +857,7 @@ const T={
   con_lead:{es:"Atención para mayoreo y menudeo en CDMX, Estado de México y Morelos.",en:"Wholesale & retail service in CDMX, State of Mexico and Morelos."},
   form_title:{es:"Solicita tu cotización",en:"Request your quote"},form_sub:{es:"Déjanos tus datos y un asesor te contactará a la brevedad.",en:"Leave your details and an advisor will contact you shortly."},
   f_name:{es:"Nombre / Negocio",en:"Name / Business"},f_phone:{es:"Teléfono",en:"Phone"},f_email:{es:"Correo",en:"Email"},f_int:{es:"Me interesa",en:"I'm interested in"},
+  f_name_err:{es:"Escribe tu nombre o el de tu negocio.",en:"Enter your name or business name."},f_phone_err:{es:"Escribe un teléfono de 10 dígitos para contactarte.",en:"Enter a 10-digit phone number so we can contact you."},
   opt1:{es:"Tostadas El Molacho",en:"El Molacho Tostadas"},opt2:{es:"Salsas La Tatema",en:"La Tatema Salsas"},opt3:{es:"Ambas marcas",en:"Both brands"},opt4:{es:"Distribución / Mayoreo",en:"Distribution / Wholesale"},
   f_msg:{es:"Mensaje",en:"Message"},ph_msg:{es:"Cuéntanos qué necesitas...",en:"Tell us what you need..."},f_send:{es:"Enviar por WhatsApp",en:"Send via WhatsApp"},
   f_ok:{es:"¡Listo! Abriendo WhatsApp para enviar tu mensaje.",en:"Done! Opening WhatsApp to send your message."},
@@ -911,9 +902,11 @@ function switchTab(i,btn){
 function sendForm(){
   const nEl=document.getElementById("fName"),pEl=document.getElementById("fPhone");
   const n=nEl.value.trim(),p=pEl.value.trim();
-  if(!n){nEl.focus();nEl.style.borderColor="var(--chile)";return;}
-  if(!p){pEl.focus();pEl.style.borderColor="var(--chile)";return;}
-  nEl.style.borderColor="";pEl.style.borderColor="";
+  const nField=nEl.closest(".field"),pField=pEl.closest(".field");
+  nField.classList.remove("invalid");pField.classList.remove("invalid");
+  nEl.removeAttribute("aria-invalid");pEl.removeAttribute("aria-invalid");
+  if(!n){nField.classList.add("invalid");nEl.setAttribute("aria-invalid","true");nEl.focus();return;}
+  if(!p){pField.classList.add("invalid");pEl.setAttribute("aria-invalid","true");pEl.focus();return;}
   const e=document.getElementById("fEmail").value.trim();
   const i=document.getElementById("fInt").value;
   const m=document.getElementById("fMsg").value.trim();
