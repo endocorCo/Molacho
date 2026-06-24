@@ -6,8 +6,8 @@
 <title data-i18n="meta_title">Tostadas El Molacho | Salsas La Tatema a Base de Chiltepín</title>
 <meta name="description" data-i18n="meta_desc" content="Tostadas artesanales El Molacho y salsas La Tatema a base de chiltepín. Más de 850 puntos de venta en CDMX, Estado de México y Morelos. Precios de mayoreo.">
 <meta name="keywords" content="tostadas artesanales, salsas chiltepín, mayoreo tostadas, El Molacho, La Tatema, distribución CDMX, Morelos, totopos, nachos, chiltepín de Sonora">
-<meta property="og:title" content="Tostadas El Molacho | Salsas La Tatema a Base de Chiltepín">
-<meta property="og:description" content="Tostadas artesanales y salsas a base de chiltepín de Sonora. Más de 850 puntos de venta en México.">
+<meta property="og:title" data-i18n="meta_title" content="Tostadas El Molacho | Salsas La Tatema a Base de Chiltepín">
+<meta property="og:description" data-i18n="meta_desc" content="Tostadas artesanales y salsas a base de chiltepín de Sonora. Más de 850 puntos de venta en México.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -219,7 +219,7 @@ section{position:relative;z-index:2}
 .stat{text-align:center;padding:48px 18px 40px;border-radius:0;background:transparent;border:0;border-top:1px solid rgba(255,255,255,.14);transition:.3s}
 .stat:hover{background:rgba(255,255,255,.04);transform:translateY(-4px)}
 .stat .num{font-family:'Fraunces';font-size:clamp(3.2rem,6vw,5rem);font-weight:900;color:var(--maiz);line-height:1;letter-spacing:-0.04em;font-variant-numeric:tabular-nums}
-.stat .lbl{margin-top:12px;font-size:.9rem;opacity:.75;letter-spacing:.02em}
+.stat .lbl{margin-top:12px;font-size:.9rem;opacity:.85;letter-spacing:.02em}
 .trust-pillars{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;margin-top:76px;border-top:1px solid rgba(255,255,255,.12);padding-top:0}
 .trust-pillars li{font-size:.82rem;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:.04em;text-transform:uppercase;padding:18px 32px;border-right:1px solid rgba(255,255,255,.1)}
 .trust-pillars li:last-child{border-right:0}
@@ -384,7 +384,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
 .foot-col a{display:block;font-size:.9rem;color:rgba(242,230,201,.7);margin-bottom:10px;transition:.2s}
 .foot-col a:hover{color:#fff;padding-left:4px}
 .socials{display:flex;gap:11px;margin-top:6px}
-.socials a{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.08);font-size:1.1rem;transition:.3s}
+.socials a{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:rgba(255,255,255,.08);font-size:1.1rem;transition:.3s}
 .socials a:hover{background:var(--chile);transform:translateY(-3px)}
 .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:.82rem;color:rgba(242,230,201,.55)}
 .foot-bottom a{color:rgba(242,230,201,.7)}
@@ -506,14 +506,14 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
         <h2>Tostadas <span class="serif-it" style="color:var(--maiz-dark)">El Molacho</span></h2>
         <p class="sec-lead" data-i18n="mol_lead">Tostadas y totopos elaborados 100% de maíz mediante procesos artesanales y altos estándares de calidad.</p>
         <ul class="feat-list">
-          <li>Sin conservadores</li>
-          <li>100% maíz</li>
-          <li>Sabor único</li>
-          <li>Más gruesas y resistentes</li>
-          <li>Horneadas</li>
-          <li>Garantía de 3 meses</li>
-          <li>Para uso personal o negocio</li>
-          <li>Resistente, crujiente y amigable con tu negocio</li>
+          <li data-i18n="mol_f1">Sin conservadores</li>
+          <li data-i18n="mol_f2">100% maíz</li>
+          <li data-i18n="mol_f3">Sabor único</li>
+          <li data-i18n="mol_f4">Más gruesas y resistentes</li>
+          <li data-i18n="mol_f5">Horneadas</li>
+          <li data-i18n="mol_f6">Garantía de 3 meses</li>
+          <li data-i18n="mol_f7">Para uso personal o negocio</li>
+          <li data-i18n="mol_f8">Resistente, crujiente y amigable con tu negocio</li>
         </ul>
       </div>
       <div class="brand-img-wrap">
@@ -741,7 +741,7 @@ footer{background:var(--tinta);color:var(--crema);padding:64px 0 28px;position:r
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Tostadas El Molacho. <span data-i18n="foot_rights">Todos los derechos reservados.</span></span>
+      <span>© <span id="yearNow">2026</span> Tostadas El Molacho. <span data-i18n="foot_rights">Todos los derechos reservados.</span></span>
       <a href="#" data-i18n="foot_priv">Aviso de Privacidad</a>
     </div>
   </div>
@@ -825,14 +825,13 @@ const T={
   hero_title:{es:'Tostadas Horneadas y <em>Salsas Artesanales a Base de Chiltepín</em>',en:'Baked Tostadas and <em>Artisan Chiltepín-Based Salsas</em>'},
   hero_sub:{es:"Más de 30 años de experiencia, distribuyendo a negocios en CDMX, Estado de México y Morelos.",en:"Over 30 years of experience, distributing to businesses across CDMX, State of Mexico and Morelos."},
   hero_btn1:{es:"Ver Productos →",en:"View Products →"},hero_btn2:{es:"Solicitar Precios de Mayoreo",en:"Request Wholesale Pricing"},
-  fc1:{es:"Sin conservadores",en:"No preservatives"},fc2:{es:"Chiltepín de Sonora",en:"Sonora Chiltepín"},
   trust_eye:{es:"Confianza comprobada",en:"Proven trust"},trust_title:{es:"Más de 850 negocios confían en nosotros",en:"Over 850 businesses trust us"},
   trust_lead:{es:"Más de 30 años distribuyendo en más de 850 clientes totales",en:"Over 30 years distributing to more than 850 total clients"},
   stat1:{es:"Clientes totales",en:"Total clients"},stat2:{es:"Tiendas y restaurantes en CDMX y Edo. de México",en:"Stores & restaurants in CDMX & State of Mexico"},stat3:{es:"Tiendas y restaurantes en Morelos",en:"Stores & restaurants in Morelos"},
   ben1:{es:"Distribución confiable",en:"Reliable distribution"},ben2:{es:"Productos artesanales",en:"Artisan products"},ben3:{es:"Calidad constante",en:"Consistent quality"},ben4:{es:"Mayoreo y menudeo",en:"Wholesale & retail"},
   mol_tag:{es:"Tostadas Artesanales",en:"Artisan Tostadas"},
   mol_lead:{es:"Tostadas y totopos elaborados 100% de maíz mediante procesos artesanales y altos estándares de calidad.",en:"Tostadas and totopos made 100% from corn through artisan processes and high quality standards."},
-  mol_f1:{es:"Elaboración artesanal",en:"Artisan made"},mol_f2:{es:"100% maíz",en:"100% corn"},mol_f3:{es:"Sin conservadores",en:"No preservatives"},mol_f4:{es:"Sin levaduras",en:"No yeast"},mol_f5:{es:"Sabor distintivo",en:"Distinctive flavor"},mol_f6:{es:"+90 días de vida útil",en:"+90 days shelf life"},mol_f7:{es:"Conservan frescura",en:"Keep freshness"},mol_f8:{es:"Para todo consumidor",en:"For every consumer"},
+  mol_f1:{es:"Sin conservadores",en:"No preservatives"},mol_f2:{es:"100% maíz",en:"100% corn"},mol_f3:{es:"Sabor único",en:"Unique flavor"},mol_f4:{es:"Más gruesas y resistentes",en:"Thicker and sturdier"},mol_f5:{es:"Horneadas",en:"Baked"},mol_f6:{es:"Garantía de 3 meses",en:"3-month guarantee"},mol_f7:{es:"Para uso personal o negocio",en:"For personal or business use"},mol_f8:{es:"Resistente, crujiente y amigable con tu negocio",en:"Sturdy, crunchy and business-friendly"},
   mol_hl_t:{es:"Resistentes y crujientes",en:"Sturdy and crunchy"},
   mol_hl_p:{es:"Nuestras tostadas mantienen su textura y resistencia para acompañar mariscos, ceviches, pozole, tostadas preparadas y una gran variedad de platillos sin romperse fácilmente.",en:"Our tostadas keep their texture and strength to pair with seafood, ceviche, pozole, prepared tostadas and a wide variety of dishes without breaking easily."},
   cat_eye:{es:"Catálogo",en:"Catalog"},cat_title:{es:"Productos El Molacho",en:"El Molacho Products"},
@@ -842,7 +841,7 @@ const T={
   p_t12:{es:"Tostada Redonda/Cuadrada #12",en:"Round/Square Tostada #12"},p_t14:{es:"Tostada Redonda/Cuadrada #14",en:"Round/Square Tostada #14"},p_toto:{es:"Totopo Triangular",en:"Triangular Totopo"},p_nacho:{es:"Nacho Circular",en:"Circular Nacho"},p_ind:{es:"Tostada Individual #12",en:"Individual Tostada #12"},p_indp:{es:"Tostada Individual Personalizada",en:"Custom Individual Tostada"},
   may_note:{es:"<b>Condiciones:</b> Media caja = 9 paquetes y caja completa = 18 paquetes, excepto tostada individual: media caja = 50 paquetes y caja completa = 100 paquetes.",en:"<b>Conditions:</b> Half box = 9 packs and full box = 18 packs, except individual tostada: half box = 50 packs and full box = 100 packs."},
   tat_tag:{es:"Salsas a Base de Chiltepín",en:"Chiltepín-Based Salsas"},
-  tat_lead:{es:"Salsas artesanales elaboradas con chiltepín silvestre de la Sierra de Sonora e ingredientes naturales seleccionados.",en:"Artisan salsas made with wild chiltepín from the Sierra de Sonora and carefully selected natural ingredients."},
+  tat_lead:{es:"Salsas artesanales elaboradas con ingredientes naturales y chiles seleccionados para ofrecer una experiencia gastronómica auténticamente mexicana.",en:"Artisan salsas made with natural ingredients and selected chiles, for an authentically Mexican culinary experience."},
   tat_f1:{es:"100% ingredientes naturales",en:"100% natural ingredients"},tat_f2:{es:"Excelente sabor",en:"Excellent flavor"},tat_f3:{es:"Gran consistencia",en:"Great consistency"},tat_f4:{es:"Buena textura",en:"Good texture"},tat_f5:{es:"Distintos niveles de picor",en:"Different heat levels"},tat_f6:{es:"1 año de anaquel",en:"1 year shelf life"},tat_f7:{es:"No requieren refrigeración",en:"No refrigeration needed"},tat_f8:{es:"Para carnes, mariscos y botanas",en:"For meats, seafood & snacks"},
   salsa_eye:{es:"Catálogo",en:"Catalog"},salsa_title:{es:"Nuestras Salsas",en:"Our Salsas"},
   sp_eye:{es:"Salsas · Precios",en:"Salsas · Pricing"},sp_title:{es:"Mayoreo y menudeo de salsas",en:"Salsa wholesale & retail"},
@@ -936,6 +935,7 @@ const io=new IntersectionObserver(es=>es.forEach(en=>{
 document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
 
 /* INIT */
+document.getElementById("yearNow").textContent=new Date().getFullYear();
 renderProducts();renderSalsas();renderClients();
 </script>
 </body>
