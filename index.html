@@ -304,11 +304,12 @@ table{width:100%;border-collapse:collapse}
 thead th{
   background:linear-gradient(135deg,var(--tatema),var(--chile-deep));color:#fff;
   font-family:'Outfit';font-weight:600;font-size:.82rem;letter-spacing:.5px;
-  padding:16px 18px;text-align:left;text-transform:uppercase;
+  padding:16px 18px;text-align:center;text-transform:uppercase;
 }
-tbody td{padding:15px 18px;border-bottom:1px solid rgba(122,19,24,.07);font-size:.94rem}
+thead th:first-child{text-align:left}
+tbody td{padding:15px 18px;border-bottom:1px solid rgba(122,19,24,.07);font-size:.94rem;text-align:center}
 tbody tr:hover{background:rgba(247,148,29,.07)}
-tbody td:first-child{font-weight:600;color:var(--tinta)}
+tbody td:first-child{font-weight:600;color:var(--tinta);text-align:left}
 .price-val{font-family:'Fraunces';font-weight:600;color:var(--chile-deep);font-variant-numeric:tabular-nums}
 .price-val .pkg-ct{font-family:'Outfit';font-size:.78rem;font-weight:500;color:var(--tinta-soft);margin-left:4px}
 .price-note{margin-top:18px;padding:18px 22px;background:rgba(247,148,29,.1);border-radius:14px;font-size:.88rem;color:var(--tinta-soft);border:1px solid rgba(247,148,29,.3)}
